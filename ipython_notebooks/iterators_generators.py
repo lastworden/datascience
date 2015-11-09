@@ -5,7 +5,7 @@
 
 # The built-in function iter takes an 'iterable' object and returns an iterator. Each time we call the 'next' method on the iterator gives us the next element. If there are no more elements, it raises a StopIteration.
 
-# In[22]:
+# In[15]:
 
 # Example
 str1 = 'ABCD'
@@ -19,7 +19,7 @@ while True:
 
 # 1. Our own iterator example. We can create iterator for our own class by overloading __iter__ and __next__methods
 
-# In[23]:
+# In[16]:
 
 #__author__ = 'Varun'
 
@@ -45,7 +45,7 @@ class vector:
         
 
 
-# In[24]:
+# In[17]:
 
 def Main():
 
@@ -60,6 +60,70 @@ def Main():
 if __name__ == '__main__':
     Main()
     
+
+
+# In[19]:
+
+v2 = vector([1,2,3,4,5])
+
+
+# In[20]:
+
+sum(v2)
+
+
+# ### Generators
+
+# A generator is simply a function which returns an object on which you can call next, such that for every call it returns some value, until it raises a StopIteration exception, signaling that all values have been generated. Such an object is called an iterator.
+# 
+# Normal functions return a single value using return, just like in Java. In Python, however, there is an alternative, called yield. Using yield anywhere in a function makes it a generator
+
+# In[39]:
+
+def getFib(n):
+    i1 = 0
+    i2 = 1
+    i3 = 0
+    k = 0
+    while k < n:
+        yield i3
+        i1,i2 = i2,i3
+        i3 = i1+i2
+        k += 1
+        
+    
+
+
+# In[50]:
+
+gen = getFib(10)
+
+
+# In[51]:
+
+import sys
+while True:
+    try:
+        print(next(gen))
+    except:
+        print("Unexpected error:", sys.exc_info()[0])
+        break
+
+
+# In[10]:
+
+gen = getFib(10)
+
+
+# In[11]:
+
+for i in gen:
+    print(i)
+
+
+# In[29]:
+
+print(str(StopIteration))
 
 
 # In[ ]:

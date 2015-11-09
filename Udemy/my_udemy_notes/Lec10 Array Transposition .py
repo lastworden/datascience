@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[1]:
+# In[2]:
 
 import numpy as np
 
@@ -68,33 +68,42 @@ arr_dot = arr1.dot(arr2)
 arr_dot
 
 
-# In[31]:
+# In[8]:
 
-arr3d = np.arange(48).reshape((3,4,4))
+arr3d = np.arange(18).reshape((3,2,3))
 arr3d
 
 
-# In[33]:
+# In[9]:
 
 arr3d[0]
 
 
-# In[34]:
+# In[10]:
 
 arr3d[0][1]
 
 
-# In[35]:
+# In[11]:
 
 arr3d.T
 
 
-# In[36]:
+# In[12]:
 
 arr3d
 
 
-# In[37]:
+# In[14]:
+
+arr3d.shape
+
+
+# In transpose function, the argument is new permutation of axes. For example, If you pass (1,0,2) as argmet, the element arr[x,y,z] -> arr[y,x,z] in the result
+# 
+# 
+
+# In[13]:
 
 arr3d.transpose((1,0,2))
 
@@ -107,6 +116,45 @@ arr = np.array([[1,2,3]])
 # In[45]:
 
 arr.swapaxes(0,1)
+
+
+# Convert n d array to n+1 d array
+# <http://stackoverflow.com/questions/5954603/transposing-a-numpy-array>
+
+# In[19]:
+
+arr = np.array([1,2,3])[None]
+
+
+# In[20]:
+
+arr
+
+
+# In[22]:
+
+t = np.array(50)
+t
+
+
+# In[23]:
+
+print(t)
+
+
+# In[24]:
+
+t.shape
+
+
+# In[26]:
+
+np.ndim(arr3d)
+
+
+# In[27]:
+
+np.ndim(t)
 
 
 # In[ ]:
