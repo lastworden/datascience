@@ -8,6 +8,8 @@
 import re
 
 
+# 
+# 
 # . This element matches any character except newline \n  
 # \D This matches any non-digit character; this is equivalent to the class [^0-9].  
 # \d This matches any decimal digit; this is equivalent to the class [0-9]  
@@ -74,6 +76,11 @@ print_reg(regexp,st,m)
 # In[50]:
 
 print (repr('\n'))
+
+
+# In[1]:
+
+help(sum)
 
 
 # In[ ]:
