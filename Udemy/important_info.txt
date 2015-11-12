@@ -1,0 +1,20 @@
+link to github for jose portilla and thsi course resources
+
+https://github.com/jmportilla
+
+https://github.com/jmportilla/Udemy-notes
+
+
+udemy course notes :
+git clone https://github.com/jmportilla/Udemy-notes.git
+
+ml:
+git clone https://github.com/jmportilla/Udemy---Machine-Learning.git
+
+stats:
+git clone https://github.com/jmportilla/Statistics-Notes.git
+
+complete python boot camp:
+git clone https://github.com/jmportilla/Complete-Python-Bootcamp
+
+
