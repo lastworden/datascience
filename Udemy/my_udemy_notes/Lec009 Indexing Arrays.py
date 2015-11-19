@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[1]:
+# In[2]:
 
 import numpy as np
 
@@ -202,22 +202,22 @@ arr2d[0:2,1:3]
 arr2d[1,2]
 
 
-# In[88]:
+# In[3]:
 
 arr_2d= np.zeros((10,10))
 
 
-# In[89]:
+# In[4]:
 
 arr_2d
 
 
-# In[90]:
+# In[5]:
 
 arr_2d.shape
 
 
-# In[91]:
+# In[6]:
 
 arr_len = arr_2d.shape[0]
 arr_len
@@ -225,28 +225,28 @@ arr_len
 
 # # Fancy Indexing
 
-# In[92]:
+# In[7]:
 
 for i in range(arr_len):
     arr_2d[i] = i
 
 
-# In[93]:
+# In[8]:
 
 arr_2d
 
 
-# In[98]:
+# In[9]:
 
 arr_2d[[1,3,7]]
 
 
-# In[99]:
+# In[10]:
 
 arr_2d[[6,1,3]]
 
 
-# In[102]:
+# In[11]:
 
 arr_2d[[6,1,3],1]
 
@@ -254,6 +254,36 @@ arr_2d[[6,1,3],1]
 # In[103]:
 
 arr_2d[[6,1,3],[1,2]]
+
+
+# In[12]:
+
+arr_2d[:,[1,2]]
+
+
+# In[20]:
+
+arr_2d[[1,2],[3,4]]
+
+
+# In[26]:
+
+arr_2d[:,[2,4]][[2,4]]
+
+
+# In[28]:
+
+arr_2d > 5
+
+
+# In[29]:
+
+arr_2d[arr_2d > 5]
+
+
+# In[30]:
+
+arr_2d[arr_2d > 5].shape
 
 
 # In[ ]:

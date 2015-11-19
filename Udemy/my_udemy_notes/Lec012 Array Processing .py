@@ -1,7 +1,7 @@
 
 # coding: utf-8
 
-# In[2]:
+# In[3]:
 
 import numpy as np
 import matplotlib.pyplot as plt
@@ -141,20 +141,25 @@ arr
 np.where(arr<0,0,1)
 
 
-# In[10]:
+# In[4]:
 
 arr = np.array([[1,2,3],[4,5,6],[7,8,9]])
 arr
 
 
-# In[11]:
+# In[5]:
 
 arr.sum()
 
 
-# In[12]:
+# In[6]:
 
 arr.sum(0)
+
+
+# In[7]:
+
+arr.sum(1)
 
 
 # In[13]:
