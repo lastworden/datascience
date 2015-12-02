@@ -116,27 +116,27 @@ df.drop('label',axis = 1,inplace=True)
 df.head()
 
 
-# In[16]:
+# In[17]:
 
 df['Had_Affair'] = df['affairs'].apply(lambda rec: 1 if rec >0 else 0)
 
 
-# In[17]:
+# In[18]:
 
 df.head()
 
 
-# In[18]:
+# In[19]:
 
 np.sum(df['Had_Affair'])
 
 
-# In[19]:
+# In[20]:
 
 df.groupby('Had_Affair').mean()
 
 
-# In[20]:
+# In[21]:
 
 plt.scatter(df['yrs_married'],df['affairs'])
 
@@ -146,7 +146,7 @@ plt.scatter(df['yrs_married'],df['affairs'])
 sns.factorplot('age',data=df,hue='Had_Affair',palette = 'coolwarm',kind = 'count')
 
 
-# In[24]:
+# In[23]:
 
 order1 = sorted(np.unique(df['yrs_married']))
 
@@ -154,122 +154,177 @@ order1 = sorted(np.unique(df['yrs_married']))
 sns.factorplot('yrs_married',data=df,kind = 'count',palette = 'coolwarm',hue = 'Had_Affair',x_order = order1)
 
 
-# In[25]:
+# In[24]:
 
 order = sorted(np.unique(df['yrs_married']))
 order
 
 
-# In[26]:
+# In[25]:
 
 sns.factorplot('children',data=df,kind = 'count',palette = 'coolwarm',hue = 'Had_Affair',x_order = sorted(np.unique(df['children'])))
 
 
-# In[27]:
+# In[26]:
 
 sns.factorplot('educ',data=df,kind = 'count',palette = 'coolwarm',hue = 'Had_Affair',x_order = sorted(np.unique(df['educ'])))
 
 
-# In[30]:
+# In[27]:
 
 occ_dummies = pd.get_dummies(df['occupation'])
 hus_occ_dummies = pd.get_dummies(df['occupation_husb'])
 
 
-# In[42]:
+# In[28]:
 
 hus_occ_dummies.head()
 
 
-# In[32]:
+# In[29]:
 
 occ_dummies.columns = ['occ%d'%i for i in range(1,7)]
 occ_dummies.columns
 
 
-# In[33]:
+# In[30]:
 
 hus_occ_dummies.columns = ['hocc%d'%i for i in range(1,7)]
 hus_occ_dummies.columns
 
 
-# In[39]:
+# In[31]:
 
 X = df.drop(['occupation','occupation_husb','Had_Affair'],axis = 1)
 X.head()
 
 
-# In[44]:
+# In[32]:
 
 dummies = pd.concat([occ_dummies,hus_occ_dummies],axis = 1)
 dummies.head()
 
 
-# In[47]:
+# In[33]:
 
 X = pd.concat([X,dummies],axis = 1)
 X.head()
 
 
-# In[48]:
+# In[34]:
 
 Y = df['Had_Affair']
 
 
-# In[49]:
+# In[35]:
 
 Y.head()
 
 
-# In[50]:
+# In[36]:
 
 X = X.drop(['occ1','hocc1','affairs'],axis =1)
 
 
-# In[51]:
+# In[37]:
 
 X.head()
 
 
-# In[52]:
+# In[38]:
 
 type(Y)
 
 
-# In[53]:
+# In[39]:
 
 Y = np.ravel(Y)
 
 
-# In[54]:
+# In[40]:
 
 Y[:10]
 
 
-# In[55]:
+# In[41]:
 
 log_reg = LogisticRegression()
 
 
-# In[56]:
+# In[42]:
 
 log_reg.fit(X,Y)
 
 
-# In[59]:
+# In[43]:
 
 log_reg.score(X,Y)
 
 
-# In[60]:
+# In[44]:
 
 Y.mean()
 
 
-# In[81]:
+# In[45]:
 
 coeff_df = DataFrame(list(zip(X.columns,list(log_reg.coef_[0]))))
 coeff_df
+
+
+# In[54]:
+
+X_trn,X_tst,Y_trn,Y_tst = train_test_split(X,Y,test_size = 0.25)
+
+
+# In[55]:
+
+X_trn.shape
+
+
+# In[56]:
+
+X_tst.shape
+
+
+# In[57]:
+
+Y_trn.shape
+
+
+# In[58]:
+
+Y_tst.shape
+
+
+# In[59]:
+
+log_reg2 = LogisticRegression()
+
+
+# In[60]:
+
+log_reg2.fit(X_trn,Y_trn)
+
+
+# In[61]:
+
+Y_pred = log_reg2.predict(X_tst)
+
+
+# In[64]:
+
+np.sum(Y_pred == Y_tst)/(len(Y_tst))
+
+
+# In[67]:
+
+log_reg2.score(X_tst,Y_tst)
+
+
+# In[68]:
+
+metrics.accuracy_score(Y_tst,Y_pred)
 
 
 # In[ ]:
