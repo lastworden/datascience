@@ -1,0 +1,1858 @@
+<!DOCTYPE html>
+<!-- saved from url=(0070)http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib -->
+<html itemscope="" itemtype="http://schema.org/QAPage"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<title>python - surface plots in matplotlib - Stack Overflow</title>
+    <link rel="shortcut icon" href="http://cdn.sstatic.net/stackoverflow/img/favicon.ico?v=4f32ecc8f43d">
+    <link rel="apple-touch-icon image_src" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+    <link rel="search" type="application/opensearchdescription+xml" title="Stack Overflow" href="http://stackoverflow.com/opensearch.xml">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:domain" content="stackoverflow.com">
+    <meta property="og:type" content="website">    
+    <meta property="og:image" itemprop="image primaryImageOfPage" content="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon@2.png?v=73d79a89bded&amp;a">
+    <meta name="twitter:title" property="og:title" itemprop="title name" content="surface plots in matplotlib">
+    <meta name="twitter:description" property="og:description" itemprop="description" content="I have a list of 3-tuples representing a set of points in 3D space. I want to plot a surface that covers all these points. The plot_surface function in the mplot3d package requires as arguments X,Y...">
+    <meta property="og:url" content="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib">
+    <link rel="canonical" href="./python - surface plots in matplotlib - Stack Overflow_files/python - surface plots in matplotlib - Stack Overflow.html">
+
+    
+    
+    <script type="text/javascript" async="" src="./python - surface plots in matplotlib - Stack Overflow_files/ados"></script><script async="" src="./python - surface plots in matplotlib - Stack Overflow_files/quant.js"></script><script async="" src="./python - surface plots in matplotlib - Stack Overflow_files/beacon.js"></script><script async="" src="./python - surface plots in matplotlib - Stack Overflow_files/analytics.js"></script><script type="text/javascript" async="" src="./python - surface plots in matplotlib - Stack Overflow_files/ados.js"></script><script src="./python - surface plots in matplotlib - Stack Overflow_files/jquery.min.js"></script>
+    <script src="./python - surface plots in matplotlib - Stack Overflow_files/stub.en.js"></script>
+    <link rel="stylesheet" type="text/css" href="./python - surface plots in matplotlib - Stack Overflow_files/all.css">
+
+            <link rel="alternate" type="application/atom+xml" title="Feed for question &#39;surface plots in matplotlib&#39;" href="http://stackoverflow.com/feeds/question/9170838">
+            <meta name="twitter:app:country" content="US">
+            <meta name="twitter:app:name:iphone" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:iphone" content="871299723">
+            <meta name="twitter:app:url:iphone" content="se-zaphod://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib">
+            <meta name="twitter:app:name:ipad" content="Stack Exchange iOS">
+            <meta name="twitter:app:id:ipad" content="871299723">
+            <meta name="twitter:app:url:ipad" content="se-zaphod://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib">
+            <meta name="twitter:app:name:googleplay" content="Stack Exchange Android">
+            <meta name="twitter:app:url:googleplay" content="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib">
+            <meta name="twitter:app:id:googleplay" content="com.stackexchange.marvin">
+        <script>
+        
+            StackExchange.ready(function () {
+                    
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.initSnippetRenderer();
+                    });
+                    
+
+                StackExchange.using("postValidation", function () {
+                    StackExchange.postValidation.initOnBlurAndSubmit($('#post-form'), 2, 'answer');
+                });
+
+                
+                StackExchange.question.init({showAnswerHelp:true,totalCommentCount:1,shownCommentCount:1,highlightColor:'#F4A83D',backgroundColor:'#FFF',questionId:9170838});
+
+                styleCode();
+
+                    StackExchange.realtime.subscribeToQuestion('1', '9170838');
+                                                                    StackExchange.using("gps", function () { StackExchange.gps.trackOutboundClicks('#content', '.post-text'); });
+
+            });
+        </script>
+
+
+    <script>
+        StackExchange.init({"locale":"en","stackAuthUrl":"https://stackauth.com","serverTime":1449913045,"networkMetaHostname":"meta.stackexchange.com","routeName":"Questions/Show","styleCode":true,"enableUserHovercards":true,"snippets":{"enabled":true,"domain":"stacksnippets.net"},"site":{"name":"Stack Overflow","description":"Q&A for professional and enthusiast programmers","isNoticesTabEnabled":true,"recaptchaPublicKey":"6LdchgIAAAAAAJwGpIzRQSOFaO0pU6s44Xt8aTwc","recaptchaAudioLang":"en","enableNewTagCreationWarning":true,"insertSpaceAfterNameTabCompletion":false,"id":1,"enableSocialMediaInSharePopup":true},"user":{"fkey":"163fb1e578d66a1a844b2269fcb2bb53","rep":0,"isAnonymous":true,"isAnonymousNetworkWide":true}});
+        StackExchange.using.setCacheBreakers({"js/prettify-full.en.js":"2a9a904f82ad","js/moderator.en.js":"90fa41951f31","js/full-anon.en.js":"2533cff4f8e6","js/full.en.js":"629f76e15d31","js/wmd.en.js":"5819b4e34ad3","js/third-party/jquery.autocomplete.min.js":"e5f01e97f7c3","js/third-party/jquery.autocomplete.min.en.js":"","js/mobile.en.js":"257997622da6","js/help.en.js":"f58b9bbdda52","js/tageditor.en.js":"bce25cab66ee","js/tageditornew.en.js":"b9daa6c7db1b","js/inline-tag-editing.en.js":"49f7375eb68e","js/revisions.en.js":"df3cb25dfabf","js/review.en.js":"0fad4b089ed2","js/tagsuggestions.en.js":"d1ff9b84abe5","js/post-validation.en.js":"21ab2bc6fabf","js/explore-qlist.en.js":"e71f14781288","js/events.en.js":"7bb94ce9c721","js/keyboard-shortcuts.en.js":"09a79693e472","js/external-editor.en.js":"cf58cc6630ef","js/external-editor.en.js":"cf58cc6630ef","js/snippet-javascript.en.js":"500476eb1fd0","js/snippet-javascript-codemirror.en.js":"490fd927f27d"});
+        StackExchange.using("gps", function() {
+             StackExchange.gps.init(true);
+        });
+    </script>
+    
+        <script>
+            StackExchange.ready(function () {
+                $('#nav-tour').click(function () {
+                    StackExchange.using("gps", function() {
+                        StackExchange.gps.track("aboutpage.click", { aboutclick_location: "headermain" }, true);
+                    });
+                });
+            });
+        </script>
+    
+    
+<script async="" src="./python - surface plots in matplotlib - Stack Overflow_files/full-anon.en.js"></script><script async="" src="./python - surface plots in matplotlib - Stack Overflow_files/snippet-javascript.en.js"></script><script async="" src="./python - surface plots in matplotlib - Stack Overflow_files/post-validation.en.js"></script><script async="" src="./python - surface plots in matplotlib - Stack Overflow_files/prettify-full.en.js"></script><script async="" src="./python - surface plots in matplotlib - Stack Overflow_files/external-editor.en.js"></script><script type="text/javascript" src="./python - surface plots in matplotlib - Stack Overflow_files/adFeedback.js"></script><link rel="stylesheet" href="http://static.adzerk.net/Extensions/adFeedback.css"><script async="" src="./python - surface plots in matplotlib - Stack Overflow_files/p.js"></script><link type="text/css" rel="stylesheet" href="./python - surface plots in matplotlib - Stack Overflow_files/jobs.min.css"></head>
+<body class="question-page new-topbar">
+    <noscript>&lt;div id="noscript-padding"&gt;&lt;/div&gt;</noscript>
+    
+
+
+
+
+    <div id="notify-container"></div>
+    <div id="overlay-header"></div>
+    <div id="custom-header"></div>
+
+
+
+
+
+<div class="topbar">
+    <div class="topbar-wrapper">
+
+        <div class="js-topbar-dialog-corral">
+
+
+<div class="topbar-dialog siteSwitcher-dialog dno">
+    <div class="header">
+        <h3><a href="http://stackoverflow.com/">current community</a></h3>
+    </div>
+    <div class="modal-content current-site-container">
+        <ul class="current-site">
+                <li>
+                        <div class="related-links">
+                    <a href="http://chat.stackoverflow.com/" class="js-gps-track" data-gps-track="site_switcher.click({ item_type:6 })">chat</a>
+            </div>
+
+
+
+
+    <a href="http://stackoverflow.com/" class="current-site-link site-link js-gps-track" data-id="1" data-gps-track="
+        site_switcher.click({ item_type:3 })">
+        <div class="site-icon favicon favicon-stackoverflow" title="Stack Overflow"></div>
+        Stack Overflow
+    </a>
+
+                </li>
+                <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    
+
+
+
+    <a href="http://meta.stackoverflow.com/" class="site-link js-gps-track" data-id="552" data-gps-track="
+            site.switch({ target_site:552, item_type:3 }),
+        site_switcher.click({ item_type:4 })">
+        <div class="site-icon favicon favicon-stackoverflowmeta" title="Meta Stack Overflow"></div>
+        Meta Stack Overflow
+    </a>
+
+                </li>
+                            <li class="related-site">
+                        <div class="L-shaped-icon-container">
+        <span class="L-shaped-icon"></span>
+    </div>
+
+                    <a class="site-link js-gps-track" href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=multicollider" data-gps-track="site_switcher.click({ item_type:9 })">
+                        <div class="site-icon favicon favicon-careers" title="Stack Overflow Careers"></div>
+                        Stack Overflow Careers
+                    </a>
+                </li>
+        </ul>
+    </div>
+    
+    <div class="header" id="your-communities-header">
+        <h3>
+your communities        </h3>
+            
+    </div>
+    <div class="modal-content" id="your-communities-section">
+            
+            <div class="call-to-login">
+<a href="https://stackoverflow.com/users/signup?ssrc=site_switcher&returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f9170838%2fsurface-plots-in-matplotlib" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:10 })">Sign up</a> or <a href="https://stackoverflow.com/users/login?ssrc=site_switcher&returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f9170838%2fsurface-plots-in-matplotlib" class="login-link js-gps-track" data-gps-track="site_switcher.click({ item_type:11 })">log in</a> to customize your list.
+            </div>
+    </div>
+    
+    <div class="header">
+        <h3><a href="http://stackexchange.com/sites">more stack exchange communities</a></h3>
+        <a href="http://blog.stackoverflow.com/" class="fr">company blog</a>
+    </div>
+    <div class="modal-content">
+            <div class="child-content"></div>
+    </div>
+</div>
+        </div>
+
+        <div class="network-items">
+
+            <a href="http://stackexchange.com/" class="topbar-icon icon-site-switcher yes-hover js-site-switcher-button js-gps-track" data-gps-track="site_switcher.show" title="A list of all 150 Stack Exchange sites">
+                <span class="hidden-text">Stack Exchange</span>
+            </a>
+
+    <a href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#" class="topbar-icon icon-inbox yes-hover js-inbox-button" title="Recent inbox messages">
+        <span class="hidden-text">Inbox</span>
+        <span class="unread-count" style="display:none"></span>
+    </a>
+    <a href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#" class="topbar-icon icon-achievements yes-hover js-achievements-button " data-unread-class="" title="Recent achievements: reputation, badges, and privileges earned">
+        <span class="hidden-text">Reputation and Badges</span>
+        <span class="unread-count" style="display:none">
+            
+        </span>
+    </a>
+        </div>
+
+        <div class="topbar-links">
+
+                <div class="links-container">
+                <span class="topbar-menu-links">
+                                    <a href="https://stackoverflow.com/users/signup?ssrc=head&returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f9170838%2fsurface-plots-in-matplotlib" class="login-link">sign up</a>
+                                <a href="https://stackoverflow.com/users/login?ssrc=head&returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f9170838%2fsurface-plots-in-matplotlib" class="login-link">log in</a>
+
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                            <a href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#" class="icon-help js-help-button" title="Help Center and other resources">
+        help
+        <span class="triangle"></span>
+    </a>
+    <div class="topbar-dialog help-dialog js-help-dialog dno">
+        <div class="modal-content">
+            <ul>
+                                    <li>
+                        <a href="http://stackoverflow.com/tour" class="js-gps-track" data-gps-track="help_popup.click({ item_type:1 })">
+                            Tour
+                            <span class="item-summary">
+                                Start here for a quick overview of the site
+                            </span>
+                        </a>
+                    </li>
+                <li>
+                    <a href="http://stackoverflow.com/help" class="js-gps-track" data-gps-track="help_popup.click({ item_type:4 })">
+                        Help Center
+                        <span class="item-summary">
+                            Detailed answers to any questions you might have
+                        </span>
+                    </a>
+                </li>
+                    <li>
+                        <a href="http://meta.stackoverflow.com/" class="js-gps-track" data-gps-track="help_popup.click({ item_type:2 })">
+                            Meta
+                            <span class="item-summary">
+                                Discuss the workings and policies of this site
+                            </span>
+                        </a>
+                    </li>
+            </ul>
+        </div>
+    </div>
+
+                            <a href="http://careers.stackoverflow.com/?utm_source=stackoverflow.com&utm_medium=site-ui&utm_campaign=anon-topbar">stack overflow careers</a>
+                    </span>
+                </div>
+
+            <div class="search-container">
+                <form id="search" action="http://stackoverflow.com/search" method="get" autocomplete="off">
+                    <input name="q" type="text" placeholder="search" value="" tabindex="1" autocomplete="off" maxlength="240">
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+    <script>
+        StackExchange.ready(function() { StackExchange.topbar.init(); });
+    </script>
+
+    <div class="container">
+        <div id="header">
+            <br class="cbt">
+            <div id="hlogo">
+                <a href="http://stackoverflow.com/">
+                    Stack Overflow
+                </a>
+            </div>
+            <div id="hmenus">
+                <div class="nav mainnavs">
+                    <ul>
+                        <li class="youarehere"><a id="nav-questions" href="http://stackoverflow.com/questions">Questions</a></li>
+                        <li><a id="nav-tags" href="http://stackoverflow.com/tags">Tags</a></li>
+                        <li><a id="nav-users" href="http://stackoverflow.com/users">Users</a></li>
+                        <li><a id="nav-badges" href="http://stackoverflow.com/help/badges">Badges</a></li>
+                                                                    </ul>
+                </div>
+                <div class="nav askquestion">
+                    <ul>
+                        <li>
+                            <a id="nav-askquestion" href="http://stackoverflow.com/questions/ask">Ask Question</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+
+
+
+        <div id="content" class="snippet-hidden">
+            
+
+<div itemscope="" itemtype="http://schema.org/Question">
+    <link itemprop="image" href="http://cdn.sstatic.net/stackoverflow/img/apple-touch-icon.png?v=c78bd457575a">
+                <!--googleoff: all-->
+
+<div id="herobox-mini">
+    <div id="hero-content">
+        <span id="controls">
+                <a href="http://stackoverflow.com/users/signup?ssrc=hero&returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f9170838%2fsurface-plots-in-matplotlib" id="tell-me-more" class="button">Sign up</a>
+            <span id="close"><a title="click to dismiss">×</a></span>
+        </span>
+        <div id="blurb">
+            Stack Overflow is a community of 4.7 million programmers, just like you, helping each other. Join them; it only takes a minute:
+        </div>        
+    </div>
+    <script>
+        StackExchange.ready(function() {
+            var clickSource = $("body").attr("class") + '-mini';
+            var location = 0;
+            if ($("body").hasClass("questions-page")) {
+                clickSource = 'questionpagemini';
+                location = 2;
+            } else if ($("body").hasClass("question-page")) {
+                clickSource = 'questionpagemini';
+                location = 2;
+            } else if ($("body").hasClass("home-page")) {
+                clickSource = 'homepagemini';
+                location = 4;
+            }
+
+            $('#tell-me-more').click(function () {
+                StackExchange.using("gps", function () {
+                    StackExchange.gps.track("hero.action", { hero_action_type: 'cta', location: location }, true);
+                });
+            });
+            $('#herobox-mini #close').click(function () {
+                StackExchange.using("gps", function () {
+                    StackExchange.gps.track("hero.action", { hero_action_type: "close", location: location }, true);
+                });
+                $.cookie("hero", "none", { path: "/", expires: 365 });
+                var $hero = $("#herobox-mini");
+                $hero.slideUp('fast', function () { $hero.remove(); });
+                return false;
+            });
+        });
+    </script>
+</div>
+                <!--googleon: all-->
+			<div id="question-header">
+                <h1 itemprop="name"><a href="./python - surface plots in matplotlib - Stack Overflow_files/python - surface plots in matplotlib - Stack Overflow.html" class="question-hyperlink">surface plots in matplotlib</a></h1>
+		</div>
+			<div id="mainbar">
+
+			
+
+<div class="question" data-questionid="9170838" id="question">
+
+    <script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk2131745182",4).setZone(43); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk2131745182"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjozMjI1MTQsImNoIjoxMTc4LCJjayI6e30sImNyIjoxMTk1Nzc4LCJkaSI6IjQ1OGMyZTM1NjYyZTRiNTQ4OWVkNGM2NDZmMzUwMzNkIiwiZG0iOjEsImZjIjoxMjY5MTM3LCJmbCI6ODY0MjI1LCJpcCI6IjQ5LjIwNy41Mi4xMDEiLCJrdyI6InB5dGhvbixtYXRwbG90bGliIiwibnciOjIyLCJwYyI6MCwiZWMiOjAsInByIjoxNjA0LCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuY28uaW4vIiwic3QiOjgyNzcsInVrIjoidWUxLTFhN2ZhMmQzOWU1YTRlYjE5MjMwZDk4ODNkMjU0NDk3Iiwiem4iOjQzLCJ0cyI6MTQ0OTkxMzA0NjkwMiwiYmYiOnRydWUsInBuIjoiYWR6ZXJrMjEzMTc0NTE4MiIsInVyIjoiaHR0cDovL2NhcmVlcnMuc3RhY2tvdmVyZmxvdy5jb20vcHJvZHVjdHM_dXRtX3NvdXJjZT1zdGFja292ZXJmbG93LmNvbSZ1dG1fbWVkaXVtPWFkJnV0bV9jYW1wYWlnbj1lbXBsb3llcnMtYmVzdC13YXkmdXRtX2NvbnRlbnQ9bGItdXNlIn0&s=72Hq0LfqfNwTb-Dxn1MWVCvm5tQ" rel="nofollow" target="_blank" title=""><img src="./python - surface plots in matplotlib - Stack Overflow_files/5fa811fa1a3e40f1a3435478bd1364a0.png" title="" alt="" border="0" width="728" height="90"></a><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" style="position:absolute;" src="./python - surface plots in matplotlib - Stack Overflow_files/i.gif"></div>    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="9170838">
+        <a class="vote-up-off" title="This question shows research effort; it is useful and clear">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">28</span>
+        <a class="vote-down-off" title="This question does not show any research effort; it is unclear or not useful">down vote</a>
+
+        <a class="star-off" href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#" title="This is a favorite question (click again to undo)">favorite</a>
+        <div class="favoritecount"><b>6</b></div>
+
+
+</div>
+
+            </td>
+            
+<td class="postcell">
+<div>
+    <div class="post-text" itemprop="text">
+
+<p>I have a list of 3-tuples representing a set of points in 3D space. I want to plot a surface that covers all these points. The plot_surface function in the mplot3d package requires as arguments X,Y and Z which are 2d arrays. Is plot_surface the right function to plot surface and how do I transform my data in to the required format ?</p>
+
+<p><code>data = [(x1,y1,z1),(x2,y2,z2),.....,(xn,yn,zn)]</code></p>
+    </div>
+    <div class="post-taglist">
+        <a href="http://stackoverflow.com/questions/tagged/python" class="post-tag js-gps-track" title="show questions tagged &#39;python&#39;" rel="tag">python</a> <a href="http://stackoverflow.com/questions/tagged/matplotlib" class="post-tag js-gps-track" title="show questions tagged &#39;matplotlib&#39;" rel="tag">matplotlib</a> 
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/q/9170838" title="short permalink to this question" class="short-link" id="link-post-9170838">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/9170838/edit" class="suggest-edit-post" title="">improve this question</a></div>        
+    </td>
+    <td class="post-signature owner">
+        <div class="user-info ">
+    <div class="user-action-time">
+        asked <span title="2012-02-07 04:02:45Z" class="relativetime">Feb 7 '12 at 4:02</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/657215/graddy"><div class="gravatar-wrapper-32"><img src="./python - surface plots in matplotlib - Stack Overflow_files/5152934729b9d249b4dab2beb731f439" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/657215/graddy">Graddy</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">699</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="5 silver badges"><span class="badge2"></span><span class="badgecount">5</span></span><span title="16 bronze badges"><span class="badge3"></span><span class="badgecount">16</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</div>
+</td>
+        </tr>
+                
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-9170838" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-49165898" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Here are some related/similar/duplicate posts: <a href="http://stackoverflow.com/q/3012783/3585557">stackoverflow.com/q/3012783/3585557</a>, <a href="http://stackoverflow.com/q/12423601/3585557">stackoverflow.com/q/12423601/3585557</a>, <a href="http://stackoverflow.com/q/21161884/3585557">stackoverflow.com/q/21161884/3585557</a>, <a href="http://stackoverflow.com/q/26074542/3585557">stackoverflow.com/q/26074542/3585557</a>, <a href="http://stackoverflow.com/q/28389606/3585557">stackoverflow.com/q/28389606/3585557</a>, <a href="http://stackoverflow.com/q/29547687/3585557">stackoverflow.com/q/29547687/3585557</a>.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/3585557/stvn66" title="451 reputation" class="comment-user">stvn66</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#comment49165898_9170838"><span title="2015-05-30 13:24:39Z" class="relativetime-clean">May 30 at 13:24</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-9170838" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid answering questions in comments.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#" onclick=""></a>
+        </div>         
+    </td>
+</tr>        </tbody></table>
+</div>
+
+			<div id="answers">
+
+				<a name="tab-top"></a>
+				<div id="answers-header">
+					<div class="subheader answers-subheader">
+						<h2>
+								4 Answers
+                                <span style="display:none;" itemprop="answerCount">4</span>
+						</h2>
+						<div>
+							<div id="tabs">
+        <a href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib?answertab=active#tab-top" data-nav-xhref="" title="Answers with the latest activity first" data-value="active">active</a>
+        <a href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib?answertab=oldest#tab-top" data-nav-xhref="" title="Answers in the order they were provided" data-value="oldest">oldest</a>
+        <a class="youarehere" href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib?answertab=votes#tab-top" data-nav-xhref="" title="Answers with the highest score first" data-value="votes">votes</a>
+</div>
+						</div>
+					</div>    
+				</div>    
+
+
+
+
+  
+<a name="9170879"></a>
+<div id="answer-9170879" class="answer accepted-answer" data-answerid="9170879" itemscope="" itemtype="http://schema.org/Answer" itemprop="acceptedAnswer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="9170879">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">29</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+        <span class="vote-accepted-on load-accepted-answer-date" title="The question owner accepted this as the best answer Feb 10 &#39;12 at 20:24.">accepted</span>
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>For surfaces it's a bit different than a list of 3-tuples, you should pass in a grid for the domain in 2d arrays. </p>
+
+<p>If all you have is a list of 3d points, rather than some function <code>f(x, y) -&gt; z</code>, then you will have a problem because there are multiple ways to triangulate that 3d point cloud into a surface.  </p>
+
+<p>Here's a smooth surface example:</p>
+
+<pre class="lang-py prettyprint prettyprinted"><code><span class="kwd">import</span><span class="pln"> numpy </span><span class="kwd">as</span><span class="pln"> np
+</span><span class="kwd">from</span><span class="pln"> mpl_toolkits</span><span class="pun">.</span><span class="pln">mplot3d </span><span class="kwd">import</span><span class="pln"> </span><span class="typ">Axes3D</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> matplotlib</span><span class="pun">.</span><span class="pln">pyplot </span><span class="kwd">as</span><span class="pln"> plt
+</span><span class="kwd">import</span><span class="pln"> random
+
+</span><span class="kwd">def</span><span class="pln"> fun</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">):</span><span class="pln">
+  </span><span class="kwd">return</span><span class="pln"> x</span><span class="pun">**</span><span class="lit">2</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> y
+
+fig </span><span class="pun">=</span><span class="pln"> plt</span><span class="pun">.</span><span class="pln">figure</span><span class="pun">()</span><span class="pln">
+ax </span><span class="pun">=</span><span class="pln"> fig</span><span class="pun">.</span><span class="pln">add_subplot</span><span class="pun">(</span><span class="lit">111</span><span class="pun">,</span><span class="pln"> projection</span><span class="pun">=</span><span class="str">'3d'</span><span class="pun">)</span><span class="pln">
+x </span><span class="pun">=</span><span class="pln"> y </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">arange</span><span class="pun">(-</span><span class="lit">3.0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">3.0</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0.05</span><span class="pun">)</span><span class="pln">
+X</span><span class="pun">,</span><span class="pln"> Y </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">meshgrid</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln"> y</span><span class="pun">)</span><span class="pln">
+zs </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">array</span><span class="pun">([</span><span class="pln">fun</span><span class="pun">(</span><span class="pln">x</span><span class="pun">,</span><span class="pln">y</span><span class="pun">)</span><span class="pln"> </span><span class="kwd">for</span><span class="pln"> x</span><span class="pun">,</span><span class="pln">y </span><span class="kwd">in</span><span class="pln"> zip</span><span class="pun">(</span><span class="pln">np</span><span class="pun">.</span><span class="pln">ravel</span><span class="pun">(</span><span class="pln">X</span><span class="pun">),</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">ravel</span><span class="pun">(</span><span class="pln">Y</span><span class="pun">))])</span><span class="pln">
+Z </span><span class="pun">=</span><span class="pln"> zs</span><span class="pun">.</span><span class="pln">reshape</span><span class="pun">(</span><span class="pln">X</span><span class="pun">.</span><span class="pln">shape</span><span class="pun">)</span><span class="pln">
+
+ax</span><span class="pun">.</span><span class="pln">plot_surface</span><span class="pun">(</span><span class="pln">X</span><span class="pun">,</span><span class="pln"> Y</span><span class="pun">,</span><span class="pln"> Z</span><span class="pun">)</span><span class="pln">
+
+ax</span><span class="pun">.</span><span class="pln">set_xlabel</span><span class="pun">(</span><span class="str">'X Label'</span><span class="pun">)</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">set_ylabel</span><span class="pun">(</span><span class="str">'Y Label'</span><span class="pun">)</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">set_zlabel</span><span class="pun">(</span><span class="str">'Z Label'</span><span class="pun">)</span><span class="pln">
+
+plt</span><span class="pun">.</span><span class="pln">show</span><span class="pun">()</span></code></pre>
+
+<p><img src="./python - surface plots in matplotlib - Stack Overflow_files/OsVns.png" alt="enter image description here"></p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/9170879" title="short permalink to this answer" class="short-link" id="link-post-9170879">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/9170879/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/9170879/revisions" title="show all edits to this post">edited <span title="2012-02-07 04:15:22Z" class="relativetime">Feb 7 '12 at 4:15</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info user-hover">
+    <div class="user-action-time">
+        answered <span title="2012-02-07 04:09:24Z" class="relativetime">Feb 7 '12 at 4:09</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/674039/wim"><div class="gravatar-wrapper-32"><img src="./python - surface plots in matplotlib - Stack Overflow_files/leoFi.gif" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/674039/wim">wim</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score 55739" dir="ltr">55.7k</span><span title="20 gold badges"><span class="badge1"></span><span class="badgecount">20</span></span><span title="109 silver badges"><span class="badge2"></span><span class="badgecount">109</span></span><span title="193 bronze badges"><span class="badge3"></span><span class="badgecount">193</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-9170879" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-46019810" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Hi , thanks for this. Can you please elaborate on how having a function <code>f(x,y) -&gt; z</code> gets you more information than merely using a list approach like the OP initially had.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1671693/gregory-kuhn" title="134 reputation" class="comment-user">Gregory Kuhn</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#comment46019810_9170879"><span title="2015-03-05 13:33:52Z" class="relativetime-clean">Mar 5 at 13:33</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-47249223" class="comment ">
+        <td class="comment-actions">
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                <span title="number of &#39;useful comment&#39; votes received" class="cool">1</span>
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">But what do you do when z is an independent variable and not a function of x and y?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1130635/labibah" title="348 reputation" class="comment-user">Labibah</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#comment47249223_9170879"><span title="2015-04-09 20:57:51Z" class="relativetime-clean">Apr 9 at 20:57</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-47258241" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">In this case, perhaps you should be looking at <code>plot_trisurf</code> instead.  But as I've mentioned, it's non-trivial because you need to triangulate the surface and there are multiple solutions.  As a basic example, consider just the 4 points given by (0, 0, 0.2), (0, 1, 0), (1, 1, 0.2), (1, 0, 0).  Viewed from above, it just looks like a square with a slight fold in it.  <i>But along which diagonal does the "fold" occur?</i>  Is it the "high" diagonal at 0.2 or the "low" diagonal at 0?  Both are valid surfaces!  So you need to choose a triangulation algorithm before you have a well-defined solution.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/674039/wim" title="55739 reputation" class="comment-user">wim</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#comment47258241_9170879"><span title="2015-04-10 04:56:07Z" class="relativetime-clean">Apr 10 at 4:56</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-53847833" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">Why from mpl_toolkits.mplot3d import Axes3D, yet Axes3D is not used anywhere in the code above?</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1336811/ayase-eri" title="385 reputation" class="comment-user">Ayase Eri</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#comment53847833_9170879"><span title="2015-10-08 09:45:22Z" class="relativetime-clean">Oct 8 at 9:45</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-53850367" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">This import has side effects.  Using kwarg <code>projection='3d'</code> in the call <code>fig.add_subplot</code> will be unavailable without this import.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/674039/wim" title="55739 reputation" class="comment-user">wim</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#comment53850367_9170879"><span title="2015-10-08 10:47:19Z" class="relativetime-clean">Oct 8 at 10:47</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-9170879" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk5432158",4).setZone(44); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk5432158"><a href="http://engine.adzerk.net/r?e=eyJhdiI6NDE0LCJhdCI6NCwiYnQiOjAsImNtIjozMjI1MTQsImNoIjoxMTc4LCJjayI6e30sImNyIjoxMTk1OTY0LCJkaSI6IjBlZmEwNDI5MDViNDRjY2I4ODMzYTcwNDRlNWI4ZTlmIiwiZG0iOjEsImZjIjoxMjY5MzIyLCJmbCI6ODY0MjI2LCJpcCI6IjQ5LjIwNy41Mi4xMDEiLCJrdyI6InB5dGhvbixtYXRwbG90bGliIiwibnciOjIyLCJwYyI6MCwiZWMiOjAsInByIjoxNTY4LCJydCI6MSwicmYiOiJodHRwczovL3d3dy5nb29nbGUuY28uaW4vIiwic3QiOjgyNzcsInVrIjoidWUxLTFhN2ZhMmQzOWU1YTRlYjE5MjMwZDk4ODNkMjU0NDk3Iiwiem4iOjQ0LCJ0cyI6MTQ0OTkxMzA0NjkwNCwiYmYiOnRydWUsInBuIjoiYWR6ZXJrNTQzMjE1OCIsInVyIjoiaHR0cDovL2NhcmVlcnMuc3RhY2tvdmVyZmxvdy5jb20vd2h5LXN0YWNrP3V0bV9zb3VyY2U9c3RhY2tvdmVyZmxvdy5jb20mdXRtX21lZGl1bT1hZCZ1dG1fY2FtcGFpZ249Y2FuZGlkYXRlcy1hZGQtY3YmdXRtX2NvbnRlbnQ9bGItYmlyZHMifQ&s=1yq4b49vTAo16rR0LSsRLuxLwFE" rel="nofollow" target="_blank" title=""><img src="./python - surface plots in matplotlib - Stack Overflow_files/82dad5859089475ba9131caf8f71c2cc.png" title="" alt="" border="0" width="728" height="90"></a><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" style="position:absolute;" src="./python - surface plots in matplotlib - Stack Overflow_files/i(1).gif"></div>
+  
+<a name="9173563"></a>
+<div id="answer-9173563" class="answer" data-answerid="9173563" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="9173563">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">4</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>check the official example.
+X,Y and Z are indeed 2d arrays, numpy.meshgrid() is a simple way to get 2d x,y mesh out of 1d x and y values.</p>
+
+<p><a href="http://matplotlib.sourceforge.net/mpl_examples/mplot3d/surface3d_demo.py">http://matplotlib.sourceforge.net/mpl_examples/mplot3d/surface3d_demo.py</a></p>
+
+<p>here's pythonic way to convert your 3-tuples to 3 1d arrays.</p>
+
+<pre class="lang-py prettyprint prettyprinted"><code><span class="pln">data </span><span class="pun">=</span><span class="pln"> </span><span class="pun">[(</span><span class="lit">1</span><span class="pun">,</span><span class="lit">2</span><span class="pun">,</span><span class="lit">3</span><span class="pun">),</span><span class="pln"> </span><span class="pun">(</span><span class="lit">10</span><span class="pun">,</span><span class="lit">20</span><span class="pun">,</span><span class="lit">30</span><span class="pun">),</span><span class="pln"> </span><span class="pun">(</span><span class="lit">11</span><span class="pun">,</span><span class="pln"> </span><span class="lit">22</span><span class="pun">,</span><span class="pln"> </span><span class="lit">33</span><span class="pun">),</span><span class="pln"> </span><span class="pun">(</span><span class="lit">110</span><span class="pun">,</span><span class="pln"> </span><span class="lit">220</span><span class="pun">,</span><span class="pln"> </span><span class="lit">330</span><span class="pun">)]</span><span class="pln">
+X</span><span class="pun">,</span><span class="pln">Y</span><span class="pun">,</span><span class="pln">Z </span><span class="pun">=</span><span class="pln"> zip</span><span class="pun">(*</span><span class="pln">data</span><span class="pun">)</span><span class="pln">
+</span><span class="typ">In</span><span class="pln"> </span><span class="pun">[</span><span class="lit">7</span><span class="pun">]:</span><span class="pln"> X
+</span><span class="typ">Out</span><span class="pun">[</span><span class="lit">7</span><span class="pun">]:</span><span class="pln"> </span><span class="pun">(</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> </span><span class="lit">10</span><span class="pun">,</span><span class="pln"> </span><span class="lit">11</span><span class="pun">,</span><span class="pln"> </span><span class="lit">110</span><span class="pun">)</span><span class="pln">
+</span><span class="typ">In</span><span class="pln"> </span><span class="pun">[</span><span class="lit">8</span><span class="pun">]:</span><span class="pln"> Y
+</span><span class="typ">Out</span><span class="pun">[</span><span class="lit">8</span><span class="pun">]:</span><span class="pln"> </span><span class="pun">(</span><span class="lit">2</span><span class="pun">,</span><span class="pln"> </span><span class="lit">20</span><span class="pun">,</span><span class="pln"> </span><span class="lit">22</span><span class="pun">,</span><span class="pln"> </span><span class="lit">220</span><span class="pun">)</span><span class="pln">
+</span><span class="typ">In</span><span class="pln"> </span><span class="pun">[</span><span class="lit">9</span><span class="pun">]:</span><span class="pln"> Z
+</span><span class="typ">Out</span><span class="pun">[</span><span class="lit">9</span><span class="pun">]:</span><span class="pln"> </span><span class="pun">(</span><span class="lit">3</span><span class="pun">,</span><span class="pln"> </span><span class="lit">30</span><span class="pun">,</span><span class="pln"> </span><span class="lit">33</span><span class="pun">,</span><span class="pln"> </span><span class="lit">330</span><span class="pun">)</span></code></pre>
+
+<p>Here's mtaplotlib delaunay triangulation (interpolation), it converts 1d x,y,z into something compliant (?):</p>
+
+<p><a href="http://matplotlib.sourceforge.net/api/mlab_api.html#matplotlib.mlab.griddata">http://matplotlib.sourceforge.net/api/mlab_api.html#matplotlib.mlab.griddata</a></p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/9173563" title="short permalink to this answer" class="short-link" id="link-post-9173563">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/9173563/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/9173563/revisions" title="show all edits to this post">edited <span title="2012-02-13 09:45:23Z" class="relativetime">Feb 13 '12 at 9:45</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2012-02-07 09:09:38Z" class="relativetime">Feb 7 '12 at 9:09</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/705086/qarma"><div class="gravatar-wrapper-32"><img src="./python - surface plots in matplotlib - Stack Overflow_files/fbeee3d76a35f9de8847f36ee51c28a2" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/705086/qarma">qarma</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">4,128</span><span title="1 gold badge"><span class="badge1"></span><span class="badgecount">1</span></span><span title="13 silver badges"><span class="badge2"></span><span class="badgecount">13</span></span><span title="51 bronze badges"><span class="badge3"></span><span class="badgecount">51</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-9173563" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-11633733" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">No... X Y Z are 2-dimensional in that example.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/674039/wim" title="55739 reputation" class="comment-user">wim</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#comment11633733_9173563"><span title="2012-02-10 23:41:45Z" class="relativetime-clean">Feb 10 '12 at 23:41</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+    <tr id="comment-11667194" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I stand corrected. Use meshgrid() if your data is uniformly spaced, like in the linked example. Interpolate e.g. with griddata() if your data if not uniformly spaced.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/705086/qarma" title="4128 reputation" class="comment-user">qarma</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#comment11667194_9173563"><span title="2012-02-13 09:50:29Z" class="relativetime-clean">Feb 13 '12 at 9:50</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-9173563" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="30539444"></a>
+<div id="answer-30539444" class="answer" data-answerid="30539444" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="30539444">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">2</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>I just came across this same problem.  I have evenly spaced data that is in 3 1-D arrays instead of the 2-D arrays that <code>matplotlib</code>'s <code>plot_surface</code> wants.  My data happened to be in a <code>pandas.DataFrame</code> so here is the <a href="http://matplotlib.org/mpl_toolkits/mplot3d/tutorial.html#surface-plots" rel="nofollow"><code>matplotlib.plot_surface</code> example</a> with the modifications to plot 3 1-D arrays.<br>
+    from mpl_toolkits.mplot3d import Axes3D
+    from matplotlib import cm
+    from matplotlib.ticker import LinearLocator, FormatStrFormatter
+    import matplotlib.pyplot as plt
+    import numpy as np</p>
+
+<pre class="lang-py prettyprint prettyprinted"><code><span class="pln">X </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">arange</span><span class="pun">(-</span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0.25</span><span class="pun">)</span><span class="pln">
+Y </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">arange</span><span class="pun">(-</span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">5</span><span class="pun">,</span><span class="pln"> </span><span class="lit">0.25</span><span class="pun">)</span><span class="pln">
+X</span><span class="pun">,</span><span class="pln"> Y </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">meshgrid</span><span class="pun">(</span><span class="pln">X</span><span class="pun">,</span><span class="pln"> Y</span><span class="pun">)</span><span class="pln">
+R </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">sqrt</span><span class="pun">(</span><span class="pln">X</span><span class="pun">**</span><span class="lit">2</span><span class="pln"> </span><span class="pun">+</span><span class="pln"> Y</span><span class="pun">**</span><span class="lit">2</span><span class="pun">)</span><span class="pln">
+Z </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">sin</span><span class="pun">(</span><span class="pln">R</span><span class="pun">)</span><span class="pln">
+
+fig </span><span class="pun">=</span><span class="pln"> plt</span><span class="pun">.</span><span class="pln">figure</span><span class="pun">()</span><span class="pln">
+ax </span><span class="pun">=</span><span class="pln"> fig</span><span class="pun">.</span><span class="pln">gca</span><span class="pun">(</span><span class="pln">projection</span><span class="pun">=</span><span class="str">'3d'</span><span class="pun">)</span><span class="pln">
+surf </span><span class="pun">=</span><span class="pln"> ax</span><span class="pun">.</span><span class="pln">plot_surface</span><span class="pun">(</span><span class="pln">X</span><span class="pun">,</span><span class="pln"> Y</span><span class="pun">,</span><span class="pln"> Z</span><span class="pun">,</span><span class="pln"> rstride</span><span class="pun">=</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> cstride</span><span class="pun">=</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> cmap</span><span class="pun">=</span><span class="pln">cm</span><span class="pun">.</span><span class="pln">coolwarm</span><span class="pun">,</span><span class="pln">
+    linewidth</span><span class="pun">=</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> antialiased</span><span class="pun">=</span><span class="kwd">False</span><span class="pun">)</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">set_zlim</span><span class="pun">(-</span><span class="lit">1.01</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1.01</span><span class="pun">)</span><span class="pln">
+
+ax</span><span class="pun">.</span><span class="pln">zaxis</span><span class="pun">.</span><span class="pln">set_major_locator</span><span class="pun">(</span><span class="typ">LinearLocator</span><span class="pun">(</span><span class="lit">10</span><span class="pun">))</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">zaxis</span><span class="pun">.</span><span class="pln">set_major_formatter</span><span class="pun">(</span><span class="typ">FormatStrFormatter</span><span class="pun">(</span><span class="str">'%.02f'</span><span class="pun">))</span><span class="pln">
+
+fig</span><span class="pun">.</span><span class="pln">colorbar</span><span class="pun">(</span><span class="pln">surf</span><span class="pun">,</span><span class="pln"> shrink</span><span class="pun">=</span><span class="lit">0.5</span><span class="pun">,</span><span class="pln"> aspect</span><span class="pun">=</span><span class="lit">5</span><span class="pun">)</span><span class="pln">
+plt</span><span class="pun">.</span><span class="pln">title</span><span class="pun">(</span><span class="str">'Original Code'</span><span class="pun">)</span></code></pre>
+
+<p>That is the original example.  Adding this next bit on creates the same plot from 3 1-D arrays.</p>
+
+<pre class="lang-py prettyprint prettyprinted"><code><span class="com"># ~~~~ MODIFICATION TO EXAMPLE BEGINS HERE ~~~~ #</span><span class="pln">
+</span><span class="kwd">import</span><span class="pln"> pandas </span><span class="kwd">as</span><span class="pln"> pd
+</span><span class="kwd">from</span><span class="pln"> scipy</span><span class="pun">.</span><span class="pln">interpolate </span><span class="kwd">import</span><span class="pln"> griddata
+</span><span class="com"># create 1D-arrays from the 2D-arrays</span><span class="pln">
+x </span><span class="pun">=</span><span class="pln"> X</span><span class="pun">.</span><span class="pln">reshape</span><span class="pun">(</span><span class="lit">1600</span><span class="pun">)</span><span class="pln">
+y </span><span class="pun">=</span><span class="pln"> Y</span><span class="pun">.</span><span class="pln">reshape</span><span class="pun">(</span><span class="lit">1600</span><span class="pun">)</span><span class="pln">
+z </span><span class="pun">=</span><span class="pln"> Z</span><span class="pun">.</span><span class="pln">reshape</span><span class="pun">(</span><span class="lit">1600</span><span class="pun">)</span><span class="pln">
+xyz </span><span class="pun">=</span><span class="pln"> </span><span class="pun">{</span><span class="str">'x'</span><span class="pun">:</span><span class="pln"> x</span><span class="pun">,</span><span class="pln"> </span><span class="str">'y'</span><span class="pun">:</span><span class="pln"> y</span><span class="pun">,</span><span class="pln"> </span><span class="str">'z'</span><span class="pun">:</span><span class="pln"> z</span><span class="pun">}</span><span class="pln">
+
+</span><span class="com"># put the data into a pandas DataFrame (this is what my data looks like)</span><span class="pln">
+df </span><span class="pun">=</span><span class="pln"> pd</span><span class="pun">.</span><span class="typ">DataFrame</span><span class="pun">(</span><span class="pln">xyz</span><span class="pun">,</span><span class="pln"> index</span><span class="pun">=</span><span class="pln">range</span><span class="pun">(</span><span class="pln">len</span><span class="pun">(</span><span class="pln">xyz</span><span class="pun">[</span><span class="str">'x'</span><span class="pun">])))</span><span class="pln"> 
+
+</span><span class="com"># re-create the 2D-arrays</span><span class="pln">
+x1 </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">linspace</span><span class="pun">(</span><span class="pln">df</span><span class="pun">[</span><span class="str">'x'</span><span class="pun">].</span><span class="pln">min</span><span class="pun">(),</span><span class="pln"> df</span><span class="pun">[</span><span class="str">'x'</span><span class="pun">].</span><span class="pln">max</span><span class="pun">(),</span><span class="pln"> len</span><span class="pun">(</span><span class="pln">df</span><span class="pun">[</span><span class="str">'x'</span><span class="pun">].</span><span class="pln">unique</span><span class="pun">()))</span><span class="pln">
+y1 </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">linspace</span><span class="pun">(</span><span class="pln">df</span><span class="pun">[</span><span class="str">'y'</span><span class="pun">].</span><span class="pln">min</span><span class="pun">(),</span><span class="pln"> df</span><span class="pun">[</span><span class="str">'y'</span><span class="pun">].</span><span class="pln">max</span><span class="pun">(),</span><span class="pln"> len</span><span class="pun">(</span><span class="pln">df</span><span class="pun">[</span><span class="str">'y'</span><span class="pun">].</span><span class="pln">unique</span><span class="pun">()))</span><span class="pln">
+x2</span><span class="pun">,</span><span class="pln"> y2 </span><span class="pun">=</span><span class="pln"> np</span><span class="pun">.</span><span class="pln">meshgrid</span><span class="pun">(</span><span class="pln">x1</span><span class="pun">,</span><span class="pln"> y1</span><span class="pun">)</span><span class="pln">
+z2 </span><span class="pun">=</span><span class="pln"> griddata</span><span class="pun">((</span><span class="pln">df</span><span class="pun">[</span><span class="str">'x'</span><span class="pun">],</span><span class="pln"> df</span><span class="pun">[</span><span class="str">'y'</span><span class="pun">]),</span><span class="pln"> df</span><span class="pun">[</span><span class="str">'z'</span><span class="pun">],</span><span class="pln"> </span><span class="pun">(</span><span class="pln">x2</span><span class="pun">,</span><span class="pln"> y2</span><span class="pun">),</span><span class="pln"> method</span><span class="pun">=</span><span class="str">'cubic'</span><span class="pun">)</span><span class="pln">
+
+fig </span><span class="pun">=</span><span class="pln"> plt</span><span class="pun">.</span><span class="pln">figure</span><span class="pun">()</span><span class="pln">
+ax </span><span class="pun">=</span><span class="pln"> fig</span><span class="pun">.</span><span class="pln">gca</span><span class="pun">(</span><span class="pln">projection</span><span class="pun">=</span><span class="str">'3d'</span><span class="pun">)</span><span class="pln">
+surf </span><span class="pun">=</span><span class="pln"> ax</span><span class="pun">.</span><span class="pln">plot_surface</span><span class="pun">(</span><span class="pln">x2</span><span class="pun">,</span><span class="pln"> y2</span><span class="pun">,</span><span class="pln"> z2</span><span class="pun">,</span><span class="pln"> rstride</span><span class="pun">=</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> cstride</span><span class="pun">=</span><span class="lit">1</span><span class="pun">,</span><span class="pln"> cmap</span><span class="pun">=</span><span class="pln">cm</span><span class="pun">.</span><span class="pln">coolwarm</span><span class="pun">,</span><span class="pln">
+    linewidth</span><span class="pun">=</span><span class="lit">0</span><span class="pun">,</span><span class="pln"> antialiased</span><span class="pun">=</span><span class="kwd">False</span><span class="pun">)</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">set_zlim</span><span class="pun">(-</span><span class="lit">1.01</span><span class="pun">,</span><span class="pln"> </span><span class="lit">1.01</span><span class="pun">)</span><span class="pln">
+
+ax</span><span class="pun">.</span><span class="pln">zaxis</span><span class="pun">.</span><span class="pln">set_major_locator</span><span class="pun">(</span><span class="typ">LinearLocator</span><span class="pun">(</span><span class="lit">10</span><span class="pun">))</span><span class="pln">
+ax</span><span class="pun">.</span><span class="pln">zaxis</span><span class="pun">.</span><span class="pln">set_major_formatter</span><span class="pun">(</span><span class="typ">FormatStrFormatter</span><span class="pun">(</span><span class="str">'%.02f'</span><span class="pun">))</span><span class="pln">
+
+fig</span><span class="pun">.</span><span class="pln">colorbar</span><span class="pun">(</span><span class="pln">surf</span><span class="pun">,</span><span class="pln"> shrink</span><span class="pun">=</span><span class="lit">0.5</span><span class="pun">,</span><span class="pln"> aspect</span><span class="pun">=</span><span class="lit">5</span><span class="pun">)</span><span class="pln">
+plt</span><span class="pun">.</span><span class="pln">title</span><span class="pun">(</span><span class="str">'Meshgrid Created from 3 1D Arrays'</span><span class="pun">)</span><span class="pln">
+</span><span class="com"># ~~~~ MODIFICATION TO EXAMPLE ENDS HERE ~~~~ #</span><span class="pln">
+
+plt</span><span class="pun">.</span><span class="pln">show</span><span class="pun">()</span></code></pre>
+
+<p>Here are the resulting figures:</p>
+
+<p><img src="./python - surface plots in matplotlib - Stack Overflow_files/ITo0T.png" alt="enter image description here">
+<img src="./python - surface plots in matplotlib - Stack Overflow_files/Z0WfP.png" alt="enter image description here"></p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/30539444" title="short permalink to this answer" class="short-link" id="link-post-30539444">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/30539444/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+    <td align="right" class="post-signature">
+<div class="user-info ">
+    <div class="user-action-time">
+        <a href="http://stackoverflow.com/posts/30539444/revisions" title="show all edits to this post">edited <span title="2015-05-29 21:49:59Z" class="relativetime">May 29 at 21:49</span></a>
+    </div>
+    <div class="user-gravatar32">
+        
+    </div>
+    <div class="user-details">
+        
+        <div class="-flair">
+            
+        </div>
+    </div>
+</div>    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2015-05-29 21:35:39Z" class="relativetime">May 29 at 21:35</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/3585557/stvn66"><div class="gravatar-wrapper-32"><img src="./python - surface plots in matplotlib - Stack Overflow_files/lLEh9.jpg" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/3585557/stvn66">stvn66</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">451</span><span title="2 silver badges"><span class="badge2"></span><span class="badgecount">2</span></span><span title="14 bronze badges"><span class="badge3"></span><span class="badgecount">14</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-30539444" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-52563545" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">I was wondering if it is possible to remove the lines coming on the surface(the image above), I mean is it possible to give the surface a glossy look instead of scaly appearance ? thank you. @stvn66</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1363699/diffracted" title="368 reputation" class="comment-user">diffracteD</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#comment52563545_30539444"><span title="2015-09-02 04:44:28Z" class="relativetime-clean">Sep 2 at 4:44</span></a></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-30539444" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+
+  
+<a name="26373004"></a>
+<div id="answer-26373004" class="answer" data-answerid="26373004" itemscope="" itemtype="http://schema.org/Answer">
+    <table>
+        <tbody><tr>
+            <td class="votecell">
+                
+
+<div class="vote">
+        <input type="hidden" name="_id_" value="26373004">
+        <a class="vote-up-off" title="This answer is useful">up vote</a>
+        <span itemprop="upvoteCount" class="vote-count-post ">1</span>
+        <a class="vote-down-off" title="This answer is not useful">down vote</a>
+
+
+
+
+</div>
+
+            </td>
+            
+
+
+<td class="answercell">
+    <div class="post-text" itemprop="text">
+<p>In Matlab I did something similar using the <code>delaunay</code> function on the <code>x</code>, <code>y</code> coords only (not the <code>z</code>), then plotting with <code>trimesh</code> or <code>trisurf</code>, using <code>z</code> as the height.</p>
+
+<p>SciPy has the <a href="http://docs.scipy.org/doc/scipy-0.14.0/reference/generated/scipy.spatial.Delaunay.html" rel="nofollow">Delaunay</a> class, which is based on the same underlying QHull library that the Matlab's <code>delaunay</code> function is, so you should get identical results.</p>
+
+<p>From there, it should be a few lines of code to convert this <a href="http://stackoverflow.com/questions/4622057/plotting-3d-polygons-in-python-matplotlib">Plotting 3D Polygons in python-matplotlib</a> example into what you wish to achieve, as <code>Delaunay</code> gives you the specification of each triangular polygon.</p>
+    </div>
+    <table class="fw">
+    <tbody><tr>
+    <td class="vt">
+<div class="post-menu"><a href="http://stackoverflow.com/a/26373004" title="short permalink to this answer" class="short-link" id="link-post-26373004">share</a><span class="lsep">|</span><a href="http://stackoverflow.com/posts/26373004/edit" class="suggest-edit-post" title="">improve this answer</a></div>                    </td>
+            
+
+
+    <td align="right" class="post-signature">   
+       
+
+    <div class="user-info ">
+    <div class="user-action-time">
+        answered <span title="2014-10-15 01:25:32Z" class="relativetime">Oct 15 '14 at 1:25</span>
+    </div>
+    <div class="user-gravatar32">
+        <a href="http://stackoverflow.com/users/1143274/evgeni-sergeev"><div class="gravatar-wrapper-32"><img src="./python - surface plots in matplotlib - Stack Overflow_files/bf11af111cab6e513d68e5e30762deb5" alt="" width="32" height="32"></div></a>
+    </div>
+    <div class="user-details">
+        <a href="http://stackoverflow.com/users/1143274/evgeni-sergeev">Evgeni Sergeev</a>
+        <div class="-flair">
+            <span class="reputation-score" title="reputation score " dir="ltr">3,209</span><span title="3 gold badges"><span class="badge1"></span><span class="badgecount">3</span></span><span title="29 silver badges"><span class="badge2"></span><span class="badgecount">29</span></span><span title="50 bronze badges"><span class="badge3"></span><span class="badgecount">50</span></span>
+        </div>
+    </div>
+</div>
+    </td>
+    </tr>
+    </tbody></table>
+</td>
+        </tr>
+            
+<tr>
+    <td class="votecell"></td>
+    <td>
+	    <div id="comments-26373004" class="comments ">
+		    <table>
+                <tbody data-remaining-comments-count="0" data-canpost="false" data-cansee="true" data-comments-unavailable="false" data-addlink-disabled="true">
+
+
+
+    <tr id="comment-41645949" class="comment ">
+        <td>
+            <table>
+                <tbody>
+                    <tr>
+                        <td class=" comment-score">
+                                &nbsp;&nbsp;
+                        </td>
+                        <td>
+                                &nbsp;
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </td>
+        <td class="comment-text">
+            <div style="display: block;" class="comment-body">
+                <span class="comment-copy">See <a href="http://stackoverflow.com/a/25586869/1143274">this answer</a> based on <code>ax.plot_trisurf(..)</code>.</span>
+                    –&nbsp;<a href="http://stackoverflow.com/users/1143274/evgeni-sergeev" title="3209 reputation" class="comment-user">Evgeni Sergeev</a>
+                <span class="comment-date" dir="ltr"><a class="comment-link" href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#comment41645949_26373004"><span title="2014-10-22 12:43:45Z" class="relativetime-clean">Oct 22 '14 at 12:43</span></a></span>
+                    <span class="edited-yes" title="this comment was edited 1 time"></span>
+                                                                            </div>
+                    </td>
+    </tr>
+                </tbody>
+		    </table>
+	    </div>
+
+        <div id="comments-link-26373004" data-rep="50" data-anon="true">
+
+                <a class="js-add-link comments-link disabled-link " title="Use comments to ask for more information or suggest improvements. Avoid comments like “+1” or “thanks”.">add a comment</a><span class="js-link-separator dno">&nbsp;|&nbsp;</span>
+            <a class="js-show-link comments-link dno" title="expand to show all comments on this post" href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#" onclick=""></a>
+        </div>         
+    </td>
+</tr>    </tbody></table>
+</div>
+									<a name="new-answer"></a>
+						<form id="post-form" action="http://stackoverflow.com/questions/9170838/answer/submit" method="post" class="post-form">
+						    <input type="hidden" id="post-id" value="9170838">
+                            <input type="hidden" id="qualityBanWarningShown" name="qualityBanWarningShown" value="false">
+                            <input type="hidden" name="referrer" value="https://www.google.co.in/">
+							<h2 class="space">Your Answer</h2>
+
+
+            <script>
+            StackExchange.ifUsing("editor", function () {
+                StackExchange.using("externalEditor", function () {
+                    StackExchange.using("snippets", function () {
+                        StackExchange.snippets.init();
+                    });
+                });
+            }, "code-snippets");
+        </script>
+    
+
+<script>
+    StackExchange.ready(function() {
+        initTagRenderer("".split(" "), "".split(" "));
+       
+        StackExchange.using("externalEditor", function() {
+                // Have to fire editor after snippets, if snippets enabled
+                if (StackExchange.options.snippets.enabled) {
+                    StackExchange.using("snippets", function() {
+                        createEditor();
+                    });
+                }
+                else {
+                    createEditor();
+                }
+            });
+
+            function createEditor() {
+                prepareEditor({
+                    heartbeatType: 'answer',
+                convertImagesToLinks: true,
+                reputationToPostImages: 10,
+                bindNavPrevention: true,
+                postfix: "",
+                    onDemand: true,
+                    discardSelector: ".discard-answer"
+                    ,immediatelyShowMarkdownHelp:true
+                    });
+                
+
+        }
+    });  
+</script>
+
+
+<div id="post-editor" class="post-editor js-post-editor">
+
+    <div style="position: relative;">     
+        <div class="wmd-container">
+            <div id="wmd-button-bar" class="wmd-button-bar"><ul id="wmd-button-row" class="wmd-button-row"><li id="wmd-bold-button" class="wmd-button" style="left: 0px;"><span style="background-position: 0px -20px;"></span></li><li id="wmd-italic-button" class="wmd-button" style="left: 25px;"><span style="background-position: -20px -20px;"></span></li><li id="wmd-spacer1" class="wmd-spacer" style="left: 50px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-link-button" class="wmd-button" style="left: 75px;"><span style="background-position: -40px -20px;"></span></li><li id="wmd-quote-button" class="wmd-button" style="left: 100px;"><span style="background-position: -60px -20px;"></span></li><li id="wmd-code-button" class="wmd-button" style="left: 125px;"><span style="background-position: -80px -20px;"></span></li><li id="wmd-image-button" class="wmd-button" style="left: 150px;"><span style="background-position: -100px -20px;"></span></li><li id="wmd-spacer2" class="wmd-spacer" style="left: 175px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-olist-button" class="wmd-button" style="left: 200px;"><span style="background-position: -120px -20px;"></span></li><li id="wmd-ulist-button" class="wmd-button" style="left: 225px;"><span style="background-position: -140px -20px;"></span></li><li id="wmd-heading-button" class="wmd-button" style="left: 250px;"><span style="background-position: -160px -20px;"></span></li><li id="wmd-hr-button" class="wmd-button" style="left: 275px;"><span style="background-position: -180px -20px;"></span></li><li id="wmd-spacer3" class="wmd-spacer" style="left: 300px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-undo-button" class="wmd-button" style="left: 325px;"><span style="background-position: -200px -20px;"></span></li><li id="wmd-redo-button" class="wmd-button" style="left: 350px;"><span style="background-position: -220px -20px;"></span></li></ul></div>
+            <textarea id="wmd-input" class="wmd-input" name="post-text" cols="92" rows="15" tabindex="101" data-min-length=""></textarea>
+        </div>
+    </div>
+
+    <div class="fl" style="margin-top: 8px; height:24px;">&nbsp;</div>
+    <div id="draft-saved" class="draft-saved community-option fl" style="margin-top: 8px; height:24px; display:none;">draft saved</div>
+
+    <div id="draft-discarded" class="draft-discarded community-option fl" style="margin-top: 8px; height:24px; display:none;">draft discarded</div>
+
+
+
+    <div id="wmd-preview" class="wmd-preview"></div>
+    <div></div>
+    <div class="edit-block">
+        <input id="fkey" name="fkey" type="hidden" value="163fb1e578d66a1a844b2269fcb2bb53">
+        <input id="author" name="author" type="text">
+    </div>
+
+
+
+</div>
+							<div style="position: relative;">
+								
+								            <div class="form-item new-post-login">
+        
+                <div class="new-login-form">
+                    <div class="new-login-left">
+                        <h3>Sign up or <a id="login-link" href="http://stackoverflow.com/users/login?ssrc=question_page&returnurl=http%3a%2f%2fstackoverflow.com%2fquestions%2f9170838%2fsurface-plots-in-matplotlib%23new-answer">log in</a></h3>
+                        <script>
+                            StackExchange.ready(function () {
+                                StackExchange.helpers.onClickDraftSave('#login-link');
+                            });
+                        </script>
+                        <div class="preferred-login google-login">
+                            <p><span class="icon"></span><span>Sign up using Google</span></p>
+                        </div>
+                        <div class="preferred-login facebook-login">
+                            <p><span class="icon"></span><span>Sign up using Facebook</span></p>
+                        </div>
+                        <div class="preferred-login stackexchange-login">
+                            <p><span class="icon"></span><span>Sign up using Email and Password</span></p>
+                        </div>
+                    </div>
+                    <input type="hidden" name="manual-openid" class="manual-openid">
+                    <input type="hidden" name="use-facebook" class="use-facebook" value="false">
+                    <input type="hidden" name="use-google" class="use-google" value="false">
+                    <input type="button" class="submit-openid" value="Submit" style="display:none">
+                    <div class="new-login-right">
+                                <h3>Post as a guest</h3>
+    <div class="form-item">
+        <table>
+        <tbody><tr>
+                    <td class="vm">
+                <div>
+                    <label for="display-name">Name</label>
+                    <input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105">
+                </div>
+                <div>
+                    <label for="m-address">Email</label>
+                    <input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown">
+                </div>
+            </td>
+        </tr>
+        </tbody></table>
+    </div>
+
+                    </div>
+                </div>
+            </div>
+            <script>
+                StackExchange.ready(
+                    function () {
+                        StackExchange.openid.initPostLogin('.new-post-login', 'http%3a%2f%2fstackoverflow.com%2fquestions%2f9170838%2fsurface-plots-in-matplotlib%23new-answer', 'question_page');
+                    }
+                );
+            </script>
+            <noscript>
+                        &lt;h3&gt;Post as a guest&lt;/h3&gt;
+    &lt;div class="form-item"&gt;
+        &lt;table&gt;
+        &lt;tr&gt;
+                    &lt;td class="vm"&gt;
+                &lt;div&gt;
+                    &lt;label for="display-name"&gt;Name&lt;/label&gt;
+                    &lt;input id="display-name" name="display-name" type="text" size="30" maxlength="30" value="" tabindex="105"&gt;
+                &lt;/div&gt;
+                &lt;div&gt;
+                    &lt;label for="m-address"&gt;Email&lt;/label&gt;
+                    &lt;input id="m-address" name="m-address" type="email" size="30" maxlength="100" value="" tabindex="106" placeholder="required, but never shown" /&gt;
+                &lt;/div&gt;
+            &lt;/td&gt;
+        &lt;/tr&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+
+            </noscript>
+
+							</div>
+           
+															<div class="form-submit cbt">
+									<input id="submit-button" type="submit" value="Post Your Answer" tabindex="110">
+									<a href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#" class="discard-answer dno">discard</a>
+
+<p class="privacy-policy-agreement">
+By posting your answer, you agree to the <a href="http://stackexchange.com/legal/privacy-policy" target="_blank">privacy policy</a> and <a href="http://stackexchange.com/legal/terms-of-service" target="_blank">terms of service</a>.</p>
+<input type="hidden" name="legalLinksShown" value="1">								</div>
+						</form>
+
+
+
+						<h2 class="bottom-notice" data-loc="1">
+Not the answer you're looking for?							Browse other questions tagged <a href="http://stackoverflow.com/questions/tagged/python" class="post-tag" title="show questions tagged &#39;python&#39;" rel="tag">python</a> <a href="http://stackoverflow.com/questions/tagged/matplotlib" class="post-tag" title="show questions tagged &#39;matplotlib&#39;" rel="tag">matplotlib</a>  or <a href="http://stackoverflow.com/questions/ask">ask your own question</a>.						</h2>
+			</div>
+		</div>
+				<div id="sidebar" class="show-votes">
+						    <div class="module question-stats">
+			        <table id="qinfo">
+			            <tbody><tr>
+			                <td>
+			                    <p class="label-key">asked</p>
+			                </td>
+			                <td style="padding-left: 10px">
+			                    <p class="label-key" title="2012-02-07 04:02:45Z"><b>3 years ago</b></p>
+			                </td>
+			            </tr>
+			            <tr>
+			                <td>
+			                    <p class="label-key">viewed</p>
+			                </td>
+
+			                <td style="padding-left: 10px">
+			                    <p class="label-key">
+			                        <b>43257 times</b>
+			                    </p>
+			                </td>
+			            </tr>
+			                <tr>
+			                    <td>
+			                        <p class="label-key">active</p>
+			                    </td>
+			                    <td style="padding-left: 10px">
+			                        <p class="label-key"><b><a href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib?lastactivity" class="lastactivity-link" title="2015-05-29 21:49:59Z">6 months ago</a></b></p>
+			                    </td>
+			                </tr>
+			        </tbody></table>
+			    </div>
+						
+			<script>
+                var ados = ados || {}; ados.run = ados.run || [];
+                ados.run.push(function () { ados_add_placement(22,8277,"adzerk1818527188",[17,2221]).setZone(45); });
+            </script>
+            <div class="everyonelovesstackoverflow adzerk-vote" id="adzerk1818527188"><div id="careersadsdoublehigh" style="display:none;"></div><div class="adzerk-vote-controls" style="display:none;"><div class="adzerk-vote-option adzerk-vote-up"><div class="adzerk-vote-icon"></div></div><div class="adzerk-vote-option adzerk-vote-down"><div class="adzerk-vote-icon"></div></div></div><div class="adzerk-vote-survey" style="display:none;"><form><span>No problem. We won't show you that ad again. Why didn't you like it?</span><ul><li><label><input type="radio" value="12" name="downvoteReason">Uninteresting</label></li><li><label><input type="radio" value="13" name="downvoteReason">Misleading</label></li><li><label><input type="radio" value="14" name="downvoteReason">Offensive</label></li><li><label><input type="radio" value="15" name="downvoteReason">Repetitive</label></li><li><label><input type="radio" value="16" name="downvoteReason">Other</label></li></ul><a href="http://stackoverflow.com/questions/9170838/surface-plots-in-matplotlib#" class="adzerk-vote-cancel">Oops! I didn't mean to do this.</a></form></div><img height="0px" width="0px" border="0" style="position:absolute;" src="./python - surface plots in matplotlib - Stack Overflow_files/i(2).gif"></div>
+        <div id="hireme" class=" orange looking tagged"><a href="http://careers.stackoverflow.com/jobs" target="_blank" data-tz="1" data-ti="0" class="top"><span>Looking for a job?</span></a><div class="middle"><ul class="jobs"><li><a data-tz="3" data-ti="188269" href="http://careers.stackoverflow.com/jobs/102332/python-developer-datalicious" target="_blank" title="Python Developer at Datalicious. Click to learn more.">Python Developer<br><div class="company">Datalicious</div><div class="location" title="Bengaluru, India">Bengaluru, India</div><span class="post-tag">python</span><span class="post-tag">hadoop</span></a></li><li><a data-tz="3" data-ti="189197" href="http://careers.stackoverflow.com/jobs/103260/senior-python-hacker-myra-medicines" target="_blank" title="Senior Python Hacker 🖖 at Myra Medicines. Click to learn more.">Senior Python Hacker 🖖<br><div class="company">Myra Medicines</div><div class="location" title="Bengaluru, India / relocation">Bengaluru, India / relocation</div><span class="post-tag">python</span><span class="post-tag">postgresql</span></a></li><li><a data-tz="3" data-ti="181519" href="http://careers.stackoverflow.com/jobs/95539/technical-lead-babajob-services-pvt-ltd" target="_blank" title="Technical Lead at Babajob Services Pvt Ltd. Click to learn more.">Technical Lead<br><div class="company">Babajob Services Pvt</div><div class="location" title="Bengaluru, India">Bengaluru, India</div><span class="post-tag">lead</span><span class="post-tag">.net</span></a></li><li><a data-tz="3" data-ti="177479" href="http://careers.stackoverflow.com/jobs/91462/sr-development-engineer-audiencescience" target="_blank" title="Sr. Development Engineer at AudienceScience. Click to learn more.">Sr. Development Engineer<br><div class="company">AudienceScience</div><div class="location" title="Pune, India">Pune, India</div><span class="post-tag">java</span><span class="post-tag">hadoop</span></a></li></ul></div><img class="impression" src="./python - surface plots in matplotlib - Stack Overflow_files/i(3).gif" style="display:none;"></div>
+			  
+    
+            <div class="module sidebar-linked">
+	<h4 id="h-linked">Linked</h4>
+	<div class="linked" data-tracker="lq=1">
+<div class="spacer">
+	<a href="http://stackoverflow.com/q/4622057?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">31</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/4622057/plotting-3d-polygons-in-python-matplotlib?lq=1" class="question-hyperlink">Plotting 3D Polygons in python-matplotlib</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/3012783?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">14</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/3012783/plotting-3-tuple-data-points-in-a-surface-contour-plot-using-matplotlib?lq=1" class="question-hyperlink">Plotting 3-tuple data points in a surface / contour plot using matplotlib</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/12423601?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">7</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/12423601/python-the-simplest-way-to-plot-3d-surface?lq=1" class="question-hyperlink">Python the simplest way to plot 3d surface</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/21161884?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">2</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/21161884/plotting-a-3d-surface-from-a-list-of-tuples-in-matplotlib?lq=1" class="question-hyperlink">Plotting a 3d surface from a list of tuples in matplotlib</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/29547687?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/29547687/matplotlib-3d-surface-plots-not-showing?lq=1" class="question-hyperlink">matplotlib 3d surface plots not showing</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/26074542?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">1</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/26074542/plot-surface-from-3-1d-arrays?lq=1" class="question-hyperlink">Plot surface from 3 1D arrays</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/28389606?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/28389606/matplotlib-surface-plot-from-values-in-a-pandas-dataframe?lq=1" class="question-hyperlink">Matplotlib surface plot from values in a pandas DataFrame</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/32089662?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/32089662/plotting-3d-surface-from-points-coordinates-in-matplotlib?lq=1" class="question-hyperlink">Plotting 3D surface from points coordinates in matplotlib</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/31949248?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes answered-accepted default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/31949248/surface-plot-in-python?lq=1" class="question-hyperlink">Surface plot in python</a>
+</div><div class="spacer">
+	<a href="http://stackoverflow.com/q/28678862?lq=1" title="Vote score (upvotes - downvotes)">
+		<div class="answer-votes  default">0</div>
+	</a>
+	<a href="http://stackoverflow.com/questions/28678862/surface-plot-with-matplotlib-python?lq=1" class="question-hyperlink">Surface plot with matplotlib, Python</a>
+</div>					<div class="spacer more">
+				<a href="http://stackoverflow.com/questions/linked/9170838?lq=1">see more linked questions…</a>
+			</div>
+	</div>
+</div>
+
+				<div class="module sidebar-related">
+					<h4 id="h-related">Related</h4>
+                    <div class="related js-gps-related-questions" data-tracker="rq=1">
+                        <div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/3012783?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">14
+    </div>
+</a><a href="http://stackoverflow.com/questions/3012783/plotting-3-tuple-data-points-in-a-surface-contour-plot-using-matplotlib?rq=1" class="question-hyperlink">Plotting 3-tuple data points in a surface / contour plot using matplotlib</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/9622163?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted large">254
+    </div>
+</a><a href="http://stackoverflow.com/questions/9622163/save-plot-to-image-file-instead-of-displaying-it-using-matplotlib-so-it-can-be?rq=1" class="question-hyperlink">Save plot to image file instead of displaying it using Matplotlib (so it can be used in batch scripts for example)</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/10404792?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/10404792/python-matplotlib-surface-colourmap-not-displaying?rq=1" class="question-hyperlink">Python Matplotlib Surface Colourmap Not Displaying</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/13305743?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/13305743/probability-surface-plot-matplotlib?rq=1" class="question-hyperlink">Probability surface plot matplotlib</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/19888929?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/19888929/is-there-a-way-to-create-a-data-tip-or-cursor-similar-to-the-one-in-matlab-for?rq=1" class="question-hyperlink">Is there a way to create a data tip or cursor (similar to the one in Matlab) for 3D surface plots in matplotlib?</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/21161884?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">2
+    </div>
+</a><a href="http://stackoverflow.com/questions/21161884/plotting-a-3d-surface-from-a-list-of-tuples-in-matplotlib?rq=1" class="question-hyperlink">Plotting a 3d surface from a list of tuples in matplotlib</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/24919903?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes answered-accepted default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/24919903/plot-a-3d-surface-from-a-list-of-lists-using-matplotlib?rq=1" class="question-hyperlink">Plot a 3d surface from a 'list of lists' using matplotlib</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/26802569?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/26802569/matplotlib-surface-plot-limited-by-the-boundaries?rq=1" class="question-hyperlink">matplotlib surface plot limited by the boundaries</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/26859151?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">1
+    </div>
+</a><a href="http://stackoverflow.com/questions/26859151/plotting-a-4d-surface-in-matplotlib?rq=1" class="question-hyperlink">Plotting a 4d surface in matplotlib</a>
+</div>
+<div class="spacer js-gps-track">
+<a href="http://stackoverflow.com/q/31564546?rq=1" title="Vote score (upvotes - downvotes)">
+    <div class="answer-votes default">0
+    </div>
+</a><a href="http://stackoverflow.com/questions/31564546/matplotlib-plotting-non-uniform-data-in-3d-surface?rq=1" class="question-hyperlink">Matplotlib plotting non uniform data in 3D surface</a>
+</div>
+
+                    </div>
+				</div>
+            
+<div id="hot-network-questions" class="module">
+    <h4>
+        <a href="http://stackexchange.com/questions?tab=hot" class="js-gps-track" data-gps-track="posts_hot_network.click({ item_type:1, location:11 })">
+            Hot Network Questions
+        </a>
+    </h4>
+    <ul>
+            <li>
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/66345/make-a-numeric-list-converter" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Make a numeric list converter
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-money" title="Personal Finance &amp; Money Stack Exchange"></div><a href="http://money.stackexchange.com/questions/56869/how-safe-is-a-checking-account" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:93 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How safe is a checking account?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-stats" title="Cross Validated"></div><a href="http://stats.stackexchange.com/questions/186341/what-statistical-methods-are-there-to-recommend-a-movie-like-on-netflix" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:65 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What statistical methods are there to recommend a movie like on Netflix?
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1571727/definite-integral-problem-involving-trigonometric-functions" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Definite integral problem involving trigonometric functions
+                </a>
+
+            </li>
+            <li>
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1570986/does-doing-a-thing-to-both-sides-of-an-equation-have-a-name" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does "Doing a thing to both sides of an equation" have a name?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-economics" title="Economics Stack Exchange"></div><a href="http://economics.stackexchange.com/questions/9745/inverting-price-functions-and-their-conditions-intervals" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:591 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Inverting price functions and their conditions/intervals
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/31225/what-would-society-be-like-if-mate-or-die-was-in-effect-for-humans-and-mating-al" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What would society be like if Mate Or Die was in effect for humans and mating also gave the inability to die of old age?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-security" title="Information Security Stack Exchange"></div><a href="http://security.stackexchange.com/questions/107846/can-autoplay-usb-stick-spread-virus-to-windows-8-or-10" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:162 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Can autoplay USB stick spread virus to windows 8 or 10?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-worldbuilding" title="Worldbuilding Stack Exchange"></div><a href="http://worldbuilding.stackexchange.com/questions/31294/what-would-be-the-closest-thing-we-could-get-to-cold-fire" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:579 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    What would be the closest thing we could get to "Cold Fire"?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-workplace" title="The Workplace Stack Exchange"></div><a href="http://workplace.stackexchange.com/questions/59095/senior-architect-lashing-out-when-junior-developer-asks-questions-what-to-do" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:423 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Senior architect lashing out when junior developer asks questions. What to do?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-japanese" title="Japanese Language Stack Exchange"></div><a href="http://japanese.stackexchange.com/questions/29809/reading-and-usage-of-%e5%9e%82%e3%82%aa%e3%81%be%e3%81%99" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:257 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Reading and usage of 「垂オます」
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-codegolf" title="Programming Puzzles &amp; Code Golf Stack Exchange"></div><a href="http://codegolf.stackexchange.com/questions/66202/product-over-a-range" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:200 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Product over a range
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/292930/is-there-a-visual-equivalent-of-the-word-overhear" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is there a visual equivalent of the word "overhear"?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-space" title="Space Exploration Stack Exchange"></div><a href="http://space.stackexchange.com/questions/12922/how-do-astronauts-on-eva-deal-with-nose-itching" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:508 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How do astronauts on EVA deal with nose itching?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-mathematica" title="Mathematica Stack Exchange"></div><a href="http://mathematica.stackexchange.com/questions/101858/sum-the-first-element-of-a-list" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:387 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Sum the first element of a list
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-academia" title="Academia Stack Exchange"></div><a href="http://academia.stackexchange.com/questions/59876/is-the-professors-reputation-taken-into-consideration-by-the-admissions-committ" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:415 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Is the professor's reputation taken into consideration by the admissions committee when they read her/his recommendation letter
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-stackoverflow" title="Stack Overflow"></div><a href="http://stackoverflow.com/questions/34182672/why-is-0-0x80000000" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:1 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why is 0 &lt; -0x80000000?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-scifi" title="Science Fiction &amp; Fantasy Stack Exchange"></div><a href="http://scifi.stackexchange.com/questions/110149/why-does-captain-kirk-wear-green-in-the-ds9-episode-trials-and-tribble-ations" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:186 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Why does Captain Kirk wear green in the DS9 episode Trials and Tribble-ations?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/293262/word-idiom-phrase-to-describe-a-stage-in-a-projects-life-cycle-when-you-are-stu" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Word/Idiom/Phrase to describe a stage in a project's life-cycle when you are stuck and thus no progress is happening?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-math" title="Mathematics Stack Exchange"></div><a href="http://math.stackexchange.com/questions/1571593/prove-that-the-sum-of-two-numbers-is-irrational" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:69 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Prove that the sum of two numbers is irrational
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-askubuntu" title="Ask Ubuntu"></div><a href="http://askubuntu.com/questions/708417/how-to-escape-with-sed-or-grep" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:89 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    How to escape "." with sed or grep?
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-puzzling" title="Puzzling Stack Exchange"></div><a href="http://puzzling.stackexchange.com/questions/24486/tell-me-who-i-am-to-lead-she-leads-daughter-my" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:559 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Tell me who I am: To lead, she leads, daughter my
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-english" title="English Language &amp; Usage Stack Exchange"></div><a href="http://english.stackexchange.com/questions/293206/word-or-phrase-that-describes-something-that-was-very-modern-at-some-time-in-the" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:97 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Word or phrase that describes something that was very modern at some time in the past
+                </a>
+
+            </li>
+            <li class="dno js-hidden" style="display: list-item;">
+                <div class="favicon favicon-rpg" title="Role-playing Games Stack Exchange"></div><a href="http://rpg.stackexchange.com/questions/72078/does-a-healing-spell-after-beacon-of-hope-deal-maximum-healing" class="js-gps-track" data-gps-track="site.switch({ item_type:11, target_site:122 }); posts_hot_network.click({ item_type:2, location:11 })">
+                    Does a healing spell after Beacon of Hope deal maximum healing?
+                </a>
+
+            </li>
+    </ul>
+
+        
+</div>
+		</div>
+	
+<div id="feed-link">
+    <div id="feed-link-text">
+        <a href="http://stackoverflow.com/feeds/question/9170838" title="feed of this question and its answers">
+            <span class="feed-icon"></span>question feed
+        </a>
+    </div>
+</div>	<script>
+StackExchange.ready(function(){$.get('/posts/9170838/ivc/84a6');});
+</script>
+<noscript>
+    &lt;div&gt;&lt;img src="/posts/9170838/ivc/84a6" class="dno" alt="" width="0" height="0"&gt;&lt;/div&gt;
+</noscript><div style="display:none" id="prettify-lang">lang-py</div></div>
+
+
+        </div>
+    </div>
+    <div id="footer" class="categories">
+        <div class="footerwrap">
+            <div id="footer-menu">
+                <div class="top-footer-links">
+                        <a href="http://stackoverflow.com/tour">tour</a>
+                    <a href="http://stackoverflow.com/help">help</a>
+                    <a href="http://blog.stackoverflow.com/?blb=1">blog</a>
+                        <a href="http://chat.stackoverflow.com/">chat</a>
+                    <a href="http://data.stackexchange.com/">data</a>
+                    <a href="http://stackexchange.com/legal">legal</a>
+                    <a href="http://stackexchange.com/legal/privacy-policy">privacy policy</a>
+                    <a href="http://stackexchange.com/work-here">work here</a>
+                    <a href="http://stackexchange.com/mediakit">advertising info</a>
+
+                    <a onclick="StackExchange.switchMobile(&quot;on&quot;)">mobile</a>
+                    <b><a href="http://stackoverflow.com/contact">contact us</a></b>
+                        <b><a href="http://meta.stackoverflow.com/">feedback</a></b>
+                    
+                </div>
+                <div id="footer-sites">
+                    <table>
+    <tbody><tr>
+            <th colspan="3">
+                Technology
+            </th>
+            <th>
+                Life / Arts
+            </th>
+            <th>
+                Culture / Recreation
+            </th>
+            <th>
+                Science
+            </th>
+            <th>
+                Other
+            </th>
+    </tr>
+    <tr>
+            <td>
+                <ol>
+                        <li><a href="http://stackoverflow.com/" title="professional and enthusiast programmers">Stack Overflow</a></li>
+                        <li><a href="http://serverfault.com/" title="system and network administrators">Server Fault</a></li>
+                        <li><a href="http://superuser.com/" title="computer enthusiasts and power users">Super User</a></li>
+                        <li><a href="http://webapps.stackexchange.com/" title="power users of web applications">Web Applications</a></li>
+                        <li><a href="http://askubuntu.com/" title="Ubuntu users and developers">Ask Ubuntu</a></li>
+                        <li><a href="http://webmasters.stackexchange.com/" title="pro webmasters">Webmasters</a></li>
+                        <li><a href="http://gamedev.stackexchange.com/" title="professional and independent game developers">Game Development</a></li>
+                        <li><a href="http://tex.stackexchange.com/" title="users of TeX, LaTeX, ConTeXt, and related typesetting systems">TeX - LaTeX</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://programmers.stackexchange.com/" title="professional programmers interested in conceptual questions about software development">Programmers</a></li>
+                        <li><a href="http://unix.stackexchange.com/" title="users of Linux, FreeBSD and other Un*x-like operating systems">Unix &amp; Linux</a></li>
+                        <li><a href="http://apple.stackexchange.com/" title="power users of Apple hardware and software">Ask Different (Apple)</a></li>
+                        <li><a href="http://wordpress.stackexchange.com/" title="WordPress developers and administrators">WordPress Development</a></li>
+                        <li><a href="http://gis.stackexchange.com/" title="cartographers, geographers and GIS professionals">Geographic Information Systems</a></li>
+                        <li><a href="http://electronics.stackexchange.com/" title="electronics and electrical engineering professionals, students, and enthusiasts">Electrical Engineering</a></li>
+                        <li><a href="http://android.stackexchange.com/" title="enthusiasts and power users of the Android operating system">Android Enthusiasts</a></li>
+                        <li><a href="http://security.stackexchange.com/" title="information security professionals">Information Security</a></li>
+                            </ol></td><td><ol>
+                        <li><a href="http://dba.stackexchange.com/" title="database professionals who wish to improve their database skills and learn from others in the community">Database Administrators</a></li>
+                        <li><a href="http://drupal.stackexchange.com/" title="Drupal developers and administrators">Drupal Answers</a></li>
+                        <li><a href="http://sharepoint.stackexchange.com/" title="SharePoint enthusiasts">SharePoint</a></li>
+                        <li><a href="http://ux.stackexchange.com/" title="user experience researchers and experts">User Experience</a></li>
+                        <li><a href="http://mathematica.stackexchange.com/" title="users of Mathematica">Mathematica</a></li>
+                        <li><a href="http://salesforce.stackexchange.com/" title="Salesforce administrators, implementation experts, developers and anybody in-between">Salesforce</a></li>
+                        <li><a href="http://expressionengine.stackexchange.com/" title="administrators, end users, developers and designers for ExpressionEngine® CMS">ExpressionEngine® Answers</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#technology" class="more">
+                                more (13)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://photo.stackexchange.com/" title="professional, enthusiast and amateur photographers">Photography</a></li>
+                        <li><a href="http://scifi.stackexchange.com/" title="science fiction and fantasy enthusiasts">Science Fiction &amp; Fantasy</a></li>
+                        <li><a href="http://graphicdesign.stackexchange.com/" title="Graphic Design professionals, students, and enthusiasts">Graphic Design</a></li>
+                        <li><a href="http://movies.stackexchange.com/" title="movie and tv enthusiasts">Movies &amp; TV</a></li>
+                        <li><a href="http://cooking.stackexchange.com/" title="professional and amateur chefs">Seasoned Advice (cooking)</a></li>
+                        <li><a href="http://diy.stackexchange.com/" title="contractors and serious DIYers">Home Improvement</a></li>
+                        <li><a href="http://money.stackexchange.com/" title="people who want to be financially literate">Personal Finance &amp; Money</a></li>
+                        <li><a href="http://academia.stackexchange.com/" title="academics and those enrolled in higher education">Academia</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#lifearts" class="more">
+                                more (9)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://english.stackexchange.com/" title="linguists, etymologists, and serious English language enthusiasts">English Language &amp; Usage</a></li>
+                        <li><a href="http://skeptics.stackexchange.com/" title="scientific skepticism">Skeptics</a></li>
+                        <li><a href="http://judaism.stackexchange.com/" title="those who base their lives on Jewish law and tradition and anyone interested in learning more">Mi Yodeya (Judaism)</a></li>
+                        <li><a href="http://travel.stackexchange.com/" title="road warriors and seasoned travelers">Travel</a></li>
+                        <li><a href="http://christianity.stackexchange.com/" title="committed Christians, experts in Christianity and those interested in learning more">Christianity</a></li>
+                        <li><a href="http://gaming.stackexchange.com/" title="passionate videogamers on all platforms">Arqade (gaming)</a></li>
+                        <li><a href="http://bicycles.stackexchange.com/" title="people who build and repair bicycles, people who train cycling, or commute on bicycles">Bicycles</a></li>
+                        <li><a href="http://rpg.stackexchange.com/" title="gamemasters and players of tabletop, paper-and-pencil role-playing games">Role-playing Games</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#culturerecreation" class="more">
+                                more (21)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://math.stackexchange.com/" title="people studying math at any level and professionals in related fields">Mathematics</a></li>
+                        <li><a href="http://stats.stackexchange.com/" title="people interested in statistics, machine learning, data analysis, data mining, and data visualization">Cross Validated (stats)</a></li>
+                        <li><a href="http://cstheory.stackexchange.com/" title="theoretical computer scientists and researchers in related fields">Theoretical Computer Science</a></li>
+                        <li><a href="http://physics.stackexchange.com/" title="active researchers, academics and students of physics">Physics</a></li>
+                        <li><a href="http://mathoverflow.net/" title="professional mathematicians">MathOverflow</a></li>
+                        <li><a href="http://chemistry.stackexchange.com/" title="scientists, academics, teachers and students">Chemistry</a></li>
+                        <li><a href="http://biology.stackexchange.com/" title="biology researchers, academics, and students">Biology</a></li>
+                    
+                        <li>
+                            <a href="http://stackexchange.com/sites#science" class="more">
+                                more (5)
+                            </a>
+                        </li>
+                </ol>
+            </td>
+            <td>
+                <ol>
+                        <li><a href="http://stackapps.com/" title="apps, scripts, and development with the Stack Exchange API">Stack Apps</a></li>
+                        <li><a href="http://meta.stackexchange.com/" title="meta-discussion of the Stack Exchange family of Q&amp;A websites">Meta Stack Exchange</a></li>
+                        <li><a href="http://area51.stackexchange.com/" title="proposing new sites in the Stack Exchange network">Area 51</a></li>
+                        <li><a href="http://careers.stackoverflow.com/">Stack Overflow Careers</a></li>
+                    
+                </ol>
+            </td>
+    </tr>
+</tbody></table>
+                </div>
+            </div>
+
+            <div id="copyright">
+                site design / logo © 2015 Stack Exchange Inc; user contributions licensed under <a href="http://creativecommons.org/licenses/by-sa/3.0/" rel="license">cc by-sa 3.0</a> 
+                with <a href="http://blog.stackoverflow.com/2009/06/attribution-required/" rel="license">attribution required</a>
+            </div>
+            <div id="svnrev">
+                rev 2015.12.11.3072
+            </div>
+            
+        </div>
+    </div>
+    <noscript>
+        &lt;div id="noscript-warning"&gt;Stack Overflow works best with JavaScript enabled&lt;img src="http://pixel.quantserve.com/pixel/p-c1rF4kxgLUzNc.gif" alt="" class="dno"&gt;&lt;/div&gt;
+    </noscript>
+<script>var p = "http", d = "static"; if (document.location.protocol == "https:") { p += "s"; d = "engine"; } var z = document.createElement("script"); z.type = "text/javascript"; z.async = true; z.src = p + "://" + d + ".adzerk.net/ados.js"; var s = document.getElementsByTagName("script")[0]; s.parentNode.insertBefore(z, s);</script>
+<script>
+    var ados = ados || {};
+    ados.run = ados.run || [];
+    ados.run.push(function () {
+        ados_setKeywords('python,matplotlib');; ados_load();
+    });         
+</script>
+
+    <script>
+        (function (i, s, o, g, r, a, m) {
+            i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () { (i[r].q = i[r].q || []).push(arguments) }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m);
+        })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+        ga('create', 'UA-5620270-1');
+                        ga('set', 'dimension2', '|python|matplotlib|');         ga('send', 'pageview');
+        var _qevents = _qevents || [],
+            _comscore = _comscore || [];
+        (function () {
+            var ssl='https:'==document.location.protocol,
+                s=document.getElementsByTagName('script')[0],
+                qc=document.createElement('script');
+            qc.async=true;
+            qc.src=(ssl?'https://secure':'http://edge')+'.quantserve.com/quant.js';
+            s.parentNode.insertBefore(qc, s);
+            var sc=document.createElement('script');
+            sc.async=true;
+            sc.src=(ssl?'https://sb':'http://b') + '.scorecardresearch.com/beacon.js';
+            s.parentNode.insertBefore(sc, s);
+        })();
+        _comscore.push({ c1: "2", c2: "17440561" });
+        _qevents.push({ qacct: "p-c1rF4kxgLUzNc" });
+    </script>
+            
+    
+</body></html>
