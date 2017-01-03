@@ -126,6 +126,8 @@ for i in gen:
 print(str(StopIteration))
 
 
+# http://nvie.com/posts/iterators-vs-generators/
+
 # In[ ]:
 
 
